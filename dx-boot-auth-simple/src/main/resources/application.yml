@@ -6,9 +6,9 @@ spring:
     name: dx-boot-auth-simple
 
 
-logging:
-  level:
-    root: info
-
+#logging:
+#  level:
+#    root: info
+#
 
 
