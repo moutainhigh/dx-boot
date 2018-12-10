@@ -14,9 +14,9 @@
 
 
 
-
     <modules>
         <module>dx-boot-auth-simple</module>
+        <module>dx-boot-auth</module>
     </modules>
 
     

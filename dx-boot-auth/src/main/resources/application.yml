@@ -1,11 +1,9 @@
 server:
-  port:
+  port: 8050
 
 spring:
-  application:auth-simple
-
-
-
+  application:
+    name: dx-boot-auth
 
 
 logging:
