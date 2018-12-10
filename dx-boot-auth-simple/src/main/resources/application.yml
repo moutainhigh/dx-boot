@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: dx-boot-auth-simple
+
+
+logging:
+  level:
+    root: info
+
+
+
