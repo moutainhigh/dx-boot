@@ -17,6 +17,8 @@
         <module>dx-boot-test</module>
         <module>dx-cloud-auth</module>
         <module>dx-boot-security-simple</module>
+        <module>dx-boot-security-app</module>
+        <module>dx-boot-security-app-demo</module>
     </modules>
 
     

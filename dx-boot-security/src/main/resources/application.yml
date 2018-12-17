@@ -1,8 +1,8 @@
 server:
-  port: 8080
+  port:
 
 spring:
-  application: dx-cloud-auth-center
+  application: social
 
 
 
@@ -11,4 +11,6 @@ spring:
 logging:
   level:
     root: info
+
+
 
