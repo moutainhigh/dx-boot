@@ -12,10 +12,11 @@
     <description>电信学习项目</description>
 
 
-
-
     <modules>
         <module>dx-boot-auth-simple</module>
+        <module>dx-boot-test</module>
+        <module>dx-cloud-auth</module>
+        <module>dx-boot-security-simple</module>
     </modules>
 
     

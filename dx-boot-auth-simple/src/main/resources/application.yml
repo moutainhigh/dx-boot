@@ -11,4 +11,9 @@ spring:
 #    root: info
 #
 
+logging:
+  level:
+    org.springframework: DEBUG
+
+
 

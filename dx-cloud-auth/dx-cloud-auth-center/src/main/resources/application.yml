@@ -1,0 +1,14 @@
+server:
+  port:
+
+spring:
+  application: dx-cloud-auth-center
+
+
+
+
+
+logging:
+  level:
+    root: info
+

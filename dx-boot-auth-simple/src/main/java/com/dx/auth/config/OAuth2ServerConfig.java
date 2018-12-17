@@ -57,7 +57,6 @@ public class OAuth2ServerConfig {
         }
     }
 
-
     @Configuration
     @EnableAuthorizationServer
     protected static class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
