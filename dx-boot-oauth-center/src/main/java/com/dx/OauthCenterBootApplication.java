@@ -5,10 +5,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DxBootApplication {
+public class OauthCenterBootApplication {
 
     public static void main(String[] args) {
-        SpringApplication app = new SpringApplication(DxBootApplication.class);
+        SpringApplication app = new SpringApplication(OauthCenterBootApplication.class);
         app.setBannerMode(Banner.Mode.OFF);
         app.run(args);
     }

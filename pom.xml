@@ -19,6 +19,9 @@
         <module>dx-boot-security-simple</module>
         <module>dx-boot-security-app</module>
         <module>dx-boot-security-app-demo</module>
+
+        <module>dx-boot-oauth-center</module>
+
     </modules>
 
     
