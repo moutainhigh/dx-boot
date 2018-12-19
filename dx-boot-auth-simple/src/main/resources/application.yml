@@ -6,14 +6,15 @@ spring:
     name: dx-boot-auth-simple
 
 
+
 #logging:
 #  level:
 #    root: info
 #
 
-logging:
-  level:
-    org.springframework: DEBUG
+#logging:
+#  level:
+#    org.springframework: DEBUG
 
 
 
