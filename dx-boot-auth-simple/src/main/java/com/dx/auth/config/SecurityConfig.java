@@ -67,10 +67,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-    //注意是org.springframework.security.crypto.password.PasswordEncoder
+    //加密类是spring5.X以后需要配置的，不设置就会报 There is no PasswordEncoder mapped for the id "null"
     @Bean
     public PasswordEncoder passwordencoder(){
-        //BCryptPasswordEncoder implements PasswordEncoder
         return new BCryptPasswordEncoder();
     }
 }
