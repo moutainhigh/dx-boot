@@ -11,16 +11,26 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 
 /**
+ * Description: 认证服务器
+ *      提供/oauth/authorize,/oauth/token,/oauth/check_token,/oauth/confirm_access,/oauth/error
+ *
  * @author yaoj
  * @version 1.0
- * @copyright 广州明动软件有限公司 Copyright (c) 2018
- * @since 2018-12-19
+ * @copyright Copyright (c) 文理电信
+ * @since 2018-12-23
  */
 @Configuration
-@EnableAuthorizationServer //提供/oauth/authorize,/oauth/token,/oauth/check_token,/oauth/confirm_access,/oauth/error
+@EnableAuthorizationServer
 public class OAuth2ServerConfig extends AuthorizationServerConfigurerAdapter {
 
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
+    /**
+     *
+     * @param oauthServer
+     * @throws Exception
+     */
     @Override
     public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
         oauthServer
@@ -30,19 +40,21 @@ public class OAuth2ServerConfig extends AuthorizationServerConfigurerAdapter {
                 .allowFormAuthenticationForClients();
     }
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
-
+    /**
+     *
+     * @param endpoints
+     * @throws Exception
+     */
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints.authenticationManager(authenticationManager);
     }
 
-//    @Bean
-//    public PasswordEncoder bCryptPasswordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
-
+    /**
+     *
+     * @param clients
+     * @throws Exception
+     */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();

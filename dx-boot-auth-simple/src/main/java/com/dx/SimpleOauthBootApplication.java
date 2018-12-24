@@ -12,6 +12,7 @@ public class SimpleOauthBootApplication extends AuthorizationServerConfigurerAda
     /**
      * http://localhost:8080/oauth/authorize?response_type=code&client_id=demoApp&redirect_uri=http://baidu.com
      *
+     * http://localhost:8080/oauth/token
      * grant_type=authorization_code&code=gnyW4f&client_id=client&client_secret=secret&redirect_uri=http://example.com
      *
      * @param args

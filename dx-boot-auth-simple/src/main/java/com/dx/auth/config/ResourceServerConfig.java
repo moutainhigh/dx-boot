@@ -6,10 +6,12 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 
 /**
+ * Description: 资源服务器设置
+ *
  * @author yaoj
  * @version 1.0
- * @copyright 广州明动软件有限公司 Copyright (c) 2018
- * @since 2018-12-19
+ * @copyright Copyright (c) 文理电信
+ * @since 2018-12-23
  */
 @Configuration
 @EnableResourceServer
@@ -17,9 +19,13 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.requestMatchers().antMatchers("/api/**")
+        http
+                .requestMatchers().antMatchers("/api/**")
                 .and()
+                //-----------授权相关的配置 ---------------------
                 .authorizeRequests()
-                .antMatchers("/api/**").authenticated();
+                .antMatchers("/api/**")
+                //需要身份认证
+                .authenticated();
     }
 }
