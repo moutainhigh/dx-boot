@@ -1,5 +1,6 @@
 package com.dx.security.core.properties;
 
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,19 +16,19 @@ import org.springframework.context.annotation.Configuration;
  * @author lihaoyang
  * @date 2018年2月28日
  */
+@Data
 @Configuration
 @ConfigurationProperties(prefix="imooc.security")
 public class SecurityProperties {
 
+	/**
+	 * 浏览器相关配置
+	 */
+	private BrowserProperties browser = new BrowserProperties();
 
-	//验证码相关配置
+	/**
+	 * 验证码相关配置
+	 */
 	private ValidateCodeProperties code = new ValidateCodeProperties();
 
-	public ValidateCodeProperties getCode() {
-		return code;
-	}
-
-	public void setCode(ValidateCodeProperties code) {
-		this.code = code;
-	}
 }

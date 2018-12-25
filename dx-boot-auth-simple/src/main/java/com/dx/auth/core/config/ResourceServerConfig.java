@@ -1,5 +1,6 @@
 package com.dx.auth.core.config;
 
+import com.dx.security.core.authentication.mobile.SmsCodeAuthenticationSecurityConfig;
 import com.dx.security.core.properties.SecurityConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -19,8 +20,8 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
-//    @Autowired
-//    private SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
+    @Autowired
+    private SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
 
 
     @Override
@@ -50,7 +51,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .authenticated()    //都需要身份认证
                 .and()
                 .csrf().disable() //关闭csrf防护
-                //.apply(smsCodeAuthenticationSecurityConfig);//把短信验证码配置应用上
+                //把短信验证码配置应用上
+                .apply(smsCodeAuthenticationSecurityConfig);
         ;
     }
 }
