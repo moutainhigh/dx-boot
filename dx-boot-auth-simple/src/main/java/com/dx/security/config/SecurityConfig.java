@@ -1,4 +1,4 @@
-package com.dx.auth.config;
+package com.dx.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;

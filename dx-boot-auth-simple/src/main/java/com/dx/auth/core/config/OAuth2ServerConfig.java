@@ -1,4 +1,4 @@
-package com.dx.auth.config;
+package com.dx.auth.core.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
