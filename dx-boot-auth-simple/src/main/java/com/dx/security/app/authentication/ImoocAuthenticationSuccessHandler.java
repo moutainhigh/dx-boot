@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.codec.Base64;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.common.exceptions.UnapprovedClientAuthenticationException;
@@ -74,6 +75,8 @@ public class ImoocAuthenticationSuccessHandler
 			String clientId = tokens[0];
 			String clientSecret = tokens[1];
 
+			BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+
 			//TODO 这里需要处理加密问题
 
 			/**
@@ -83,7 +86,7 @@ public class ImoocAuthenticationSuccessHandler
 			
 			if(clientDetails == null){
 				throw new UnapprovedClientAuthenticationException("clientId对应的配置信息不存在，clientId:"+clientId);
-			}else if(!clientSecret.equals(clientDetails.getClientSecret())){
+			}else if(!bCryptPasswordEncoder.matches(clientSecret,clientDetails.getClientSecret())){
 				throw new UnapprovedClientAuthenticationException("clientSecret不匹配，clientId:"+clientId);
 			}
 			
