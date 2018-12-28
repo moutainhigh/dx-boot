@@ -20,6 +20,10 @@ spring:
 
 imooc:
   security:
+    code:
+      sms:
+        length: 5
+
 
 
 

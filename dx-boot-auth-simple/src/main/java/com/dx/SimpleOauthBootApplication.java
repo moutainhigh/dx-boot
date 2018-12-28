@@ -19,7 +19,7 @@ public class SimpleOauthBootApplication {
      * get http://localhost:8088/verifycode/sms?mobile=13786705806
      *head deviceId=1001
      *
-     * post http://localhost:8080/authentication/mobile
+     * post http://localhost:8088/authentication/mobile
      * head deviceId=1001 Authorization=     body  mobile=13786705806   smsCode=
      *
      *
