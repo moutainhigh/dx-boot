@@ -31,4 +31,9 @@ public class SecurityProperties {
 	 */
 	private ValidateCodeProperties code = new ValidateCodeProperties();
 
+	/**
+	 * oauth2客户端配置
+	 */
+	private OAuth2Properties oauth2 = new OAuth2Properties();
+
 }
