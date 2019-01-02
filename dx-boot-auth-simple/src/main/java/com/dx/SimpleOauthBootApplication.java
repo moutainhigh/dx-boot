@@ -3,8 +3,15 @@ package com.dx;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 
+/**
+ * Description:
+ *
+ * @author yaoj
+ * @version 1.0
+ * @copyright Copyright (c) 文理电信
+ * @since 2019-01-1
+ */
 @SpringBootApplication
 public class SimpleOauthBootApplication {
 
@@ -21,11 +28,6 @@ public class SimpleOauthBootApplication {
      *
      * post http://localhost:8088/authentication/mobile
      * head deviceId=1001 Authorization=     body  mobile=13786705806   smsCode=
-     *
-     *
-     *
-     *
-     *
      *
      * @param args
      */

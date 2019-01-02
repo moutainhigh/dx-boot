@@ -3,11 +3,12 @@ package com.dx.security.core.properties;
 import lombok.Data;
 
 /**
- * 浏览器配置项
- * ClassName: BrowserProperties 
- * @Description: 浏览器配置项
- * @author lihaoyang
- * @date 2018年2月28日
+ * Description:浏览器配置项
+ *
+ * @author yaoj
+ * @version 1.0
+ * @copyright Copyright (c) 文理电信
+ * @since 2019-01-03
  */
 @Data
 public class BrowserProperties {
@@ -31,9 +32,5 @@ public class BrowserProperties {
 	 * session的相关信息
 	 */
 	private SessionProperties session = new SessionProperties();
-	
-	
-
-	
 	
 }

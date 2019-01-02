@@ -19,6 +19,7 @@ import static com.google.common.collect.Lists.newArrayList;
 
 /**
  * swagger配置
+ *
  * @author: yaoj
  * @Date: 2018/7/30 23:05
  * 版权所有：Copyright 2018 by 文理电信

@@ -1,9 +1,9 @@
-package com.dx.security.core.validate.core;
+package com.dx.security.core.validate.code;
 
 import org.springframework.web.context.request.ServletWebRequest;
 
 /**
- * Description: 验证码存储策略
+ * Description: 验证码存储dao
  *
  * @author yaoj
  * @version 1.0

@@ -1,4 +1,4 @@
-package com.dx.security.core.validate.core;
+package com.dx.security.core.validate.code;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -10,12 +10,12 @@ import java.io.OutputStream;
 import java.util.Random;
 
 /**
- * 验证码生成工具类
- * ClassName: VerifyCode
+ * Description:验证码生成工具类
  *
- * @author lihaoyang
- * @Description: TODO
- * @date 2018年3月2日
+ * @author yaoj
+ * @version 1.0
+ * @copyright Copyright (c) 文理电信
+ * @since 2019-01-03
  */
 public class VerifyCode {
 
@@ -73,6 +73,7 @@ public class VerifyCode {
 
     /**
      * 生成随机的颜色
+     *
      * @return
      */
     private Color randomColor() {

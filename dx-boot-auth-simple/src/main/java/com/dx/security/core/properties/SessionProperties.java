@@ -1,30 +1,34 @@
 /**
- * 
+ *
  */
 package com.dx.security.core.properties;
 
 import lombok.Data;
 
 /**
- * @author zhailiang
+ * Description:系统session配置
  *
+ * @author yaoj
+ * @version 1.0
+ * @copyright Copyright (c) 文理电信
+ * @since 2019-01-03
  */
 @Data
 public class SessionProperties {
-	
-	/**
-	 * 同一个用户在系统中的最大session数，默认1
-	 */
-	private int maximumSessions = 1;
 
-	/**
-	 * 达到最大session时是否阻止新的登录请求，默认为false，不阻止，新的登录会将老的登录失效掉
-	 */
-	private boolean maxSessionsPreventsLogin;
+    /**
+     * 同一个用户在系统中的最大session数，默认1
+     */
+    private int maximumSessions = 1;
 
-	/**
-	 * session失效时跳转的地址
-	 */
-	private String sessionInvalidUrl = SecurityConstants.DEFAULT_SESSION_INVALID_URL;
+    /**
+     * 达到最大session时是否阻止新的登录请求，默认为false，不阻止，新的登录会将老的登录失效掉
+     */
+    private boolean maxSessionsPreventsLogin;
+
+    /**
+     * session失效时跳转的地址
+     */
+    private String sessionInvalidUrl = SecurityConstants.DEFAULT_SESSION_INVALID_URL;
 
 }

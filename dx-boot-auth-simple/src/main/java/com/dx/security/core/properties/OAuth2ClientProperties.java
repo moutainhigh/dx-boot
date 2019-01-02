@@ -3,25 +3,23 @@ package com.dx.security.core.properties;
 import lombok.Data;
 
 /**
- * 接口授权客户端配置 ClassName: OAuth2ClientProperties
- * 
- * @Description: 接口授权客户端配置
- * @author lihaoyang
- * @date 2018年3月15日
+ * Description:接口授权客户端配置
+ *
+ * @author yaoj
+ * @version 1.0
+ * @copyright Copyright (c) 文理电信
+ * @since 2019-01-03
  */
 @Data
 public class OAuth2ClientProperties {
 
-	private String clientId;
+    private String clientId;
 
-	private String clientSecret;
+    private String clientSecret;
 
-	/**
-	 * 没配置就用默认值
-	 */
-	private int accessTokenValiditySeconds = 3600;
-	
-	// xxxxx在这里扩展配置
-
+    /**
+     * 没配置就用默认值
+     */
+    private int accessTokenValiditySeconds = 3600;
 
 }

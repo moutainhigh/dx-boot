@@ -1,4 +1,4 @@
-package com.dx.security.core.validate.core;
+package com.dx.security.core.validate.code;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

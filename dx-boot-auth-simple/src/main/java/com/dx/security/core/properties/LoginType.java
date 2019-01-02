@@ -1,11 +1,12 @@
 package com.dx.security.core.properties;
 
 /**
- * 登录类型枚举
- * ClassName: LoginType 
- * @Description: 登录类型
- * @author lihaoyang
- * @date 2018年3月1日
+ * Description:登录类型枚举
+ *
+ * @author yaoj
+ * @version 1.0
+ * @copyright Copyright (c) 文理电信
+ * @since 2019-01-03
  */
 public enum LoginType {
 

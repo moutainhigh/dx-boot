@@ -3,11 +3,12 @@ package com.dx.security.core.properties;
 import lombok.Data;
 
 /**
+ * Description:图片验证码配置类
  * 图片验证码配置类，也可以继承SMSCodeProperties,省略点代码，随你的便
- * ClassName: ImageCodeProperties 
- * @Description: 图片验证码配置类
- * @author lihaoyang
- * @date 2018年3月2日
+ * @author yaoj
+ * @version 1.0
+ * @copyright Copyright (c) 文理电信
+ * @since 2019-01-03
  */
 @Data
 public class ImageCodeProperties {

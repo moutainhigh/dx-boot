@@ -1,10 +1,8 @@
 package com.dx.security.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -20,8 +18,9 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
  * @copyright Copyright (c) 文理电信
  * @since 2018-12-23
  */
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@EnableWebSecurity
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
+@Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
@@ -60,7 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     /**
-     * support password grant type
+     *
      * @return
      * @throws Exception
      */
@@ -70,7 +69,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-    //密码的加密解密类
+    /**
+     * 密码的加密解密类
+     * @return
+     */
     @Bean
     public PasswordEncoder passwordencoder(){
         return new BCryptPasswordEncoder();

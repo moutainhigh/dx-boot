@@ -2,11 +2,17 @@ package com.dx.auth.core.config;
 
 import com.dx.security.core.authentication.mobile.SmsCodeAuthenticationSecurityConfig;
 import com.dx.security.core.properties.SecurityConstants;
+import com.dx.security.core.properties.SecurityProperties;
+import com.dx.security.core.validate.code.SmsCodeFilter;
+import com.dx.security.core.validate.code.ValidateCodeFilter;
+import com.dx.security.core.validate.code.ValidateCodeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
  * Description: 资源服务器设置
@@ -23,10 +29,55 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Autowired
     private SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
 
+    /**
+     *
+     */
+    @Autowired
+    private ValidateCodeRepository validateCodeRepository;
+
+    /**
+     * 自定义的认证失败后的处理器
+     */
+    @Autowired
+    private AuthenticationFailureHandler imoocAuthenticationFailureHandler;
+
+    /**
+     * 配置文件
+     */
+    @Autowired
+    private SecurityProperties securityProperties;
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
+
+        //~~~-------------> 图片验证码过滤器 <------------------
+        ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
+        validateCodeFilter.setValidateCodeRepository(validateCodeRepository);
+        //验证码过滤器中使用自己的错误处理
+        validateCodeFilter.setAuthenticationFailureHandler(imoocAuthenticationFailureHandler);
+        //配置的验证码过滤url
+        validateCodeFilter.setSecurityProperties(securityProperties);
+        validateCodeFilter.afterPropertiesSet();
+
+        //~~~-------------> 短信验证码过滤器 <------------------
+        SmsCodeFilter smsCodeFilter = new SmsCodeFilter();
+        smsCodeFilter.setValidateCodeRepository(validateCodeRepository);
+        //验证码过滤器中使用自己的错误处理
+        smsCodeFilter.setAuthenticationFailureHandler(imoocAuthenticationFailureHandler);
+        //配置的验证码过滤url
+        smsCodeFilter.setSecurityProperties(securityProperties);
+        smsCodeFilter.afterPropertiesSet();
+
         http
+
+                //短信验证码过滤器
+                .addFilterBefore(smsCodeFilter, UsernamePasswordAuthenticationFilter.class)
+//		.apply(imoocSocialSecurityConfig)//社交登录
+//		.and()
+                //把验证码过滤器加载登录过滤器前边
+                .addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
+
+
                 //-----------授权相关的配置（配置的需要授权认证） ---------------------
                 //.authorizeRequests()
                 //.antMatchers("/get/**").permitAll()
@@ -39,7 +90,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .antMatchers(SecurityConstants.DEFAULT_UNAUTHENTICATION_URL,
                         SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_MOBILE,
                         SecurityConstants.SESSION_INVALID_PAGE,
-                        SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX+"/*",
+                        SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX + "/*",
                         //swagger
                         "/swagger-ui.html",
                         "/webjars/**",

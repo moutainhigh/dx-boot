@@ -1,12 +1,12 @@
 package com.dx.security.core.properties;
 
 /**
- * 安全常量配置
- * ClassName: SecurityConstants
+ * Description:安全常量配置
  *
- * @author lihaoyang
- * @Description: TODO
- * @date 2018年3月8日
+ * @author yaoj
+ * @version 1.0
+ * @copyright Copyright (c) 文理电信
+ * @since 2019-01-03
  */
 public interface SecurityConstants {
 

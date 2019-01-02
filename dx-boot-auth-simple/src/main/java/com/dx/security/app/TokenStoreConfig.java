@@ -15,11 +15,13 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
 /**
+ * Description:token存储策略
  * token存储到redis,默认是在内存不行
- * ClassName: TokenStoreConfig 
- * @Description:  token存储策略
- * @author lihaoyang
- * @date 2018年3月15日
+ *
+ * @author yaoj
+ * @version 1.0
+ * @copyright Copyright (c) 文理电信
+ * @since 2019-01-03
  */
 @Configuration
 public class TokenStoreConfig {

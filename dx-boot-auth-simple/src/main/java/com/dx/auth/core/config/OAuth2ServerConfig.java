@@ -1,6 +1,9 @@
 package com.dx.auth.core.config;
 
 import com.dx.security.core.properties.SecurityProperties;
+import com.dx.security.core.validate.code.SmsCodeFilter;
+import com.dx.security.core.validate.code.ValidateCodeFilter;
+import com.dx.security.core.validate.code.ValidateCodeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,13 +18,14 @@ import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Description: 认证服务器
- *      提供/oauth/authorize,/oauth/token,/oauth/check_token,/oauth/confirm_access,/oauth/error
+ * 提供/oauth/authorize,/oauth/token,/oauth/check_token,/oauth/confirm_access,/oauth/error
  *
  * @author yaoj
  * @version 1.0
@@ -37,12 +41,6 @@ public class OAuth2ServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
     private UserDetailsService userDetailsService;
-
-    /**
-     * 配置文件
-     */
-    @Autowired
-    private SecurityProperties securityProperties;
 
     /**
      * token存在redis，默认是在内存
@@ -79,7 +77,7 @@ public class OAuth2ServerConfig extends AuthorizationServerConfigurerAdapter {
          *
          *  在这里拿到增强器的链，把这两个增强器连起来
          */
-        if(jwtAccessTokenConverter != null && jwtTokenEnhancer != null){
+        if (jwtAccessTokenConverter != null && jwtTokenEnhancer != null) {
             //拿到增强器链
             TokenEnhancerChain enhancerChain = new TokenEnhancerChain();
 
@@ -95,7 +93,6 @@ public class OAuth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     }
 
     /**
-     *
      * @param oauthServer
      * @throws Exception
      */
@@ -103,31 +100,26 @@ public class OAuth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
         oauthServer
                 .realm("oauth2-resources")
-                .tokenKeyAccess("permitAll()") //url:/oauth/token_key,exposes public key for token verification if using JWT tokens
-                .checkTokenAccess("isAuthenticated()") //url:/oauth/check_token allow check token
+                //url:/oauth/token_key,exposes public key for token verification if using JWT tokens
+                .tokenKeyAccess("permitAll()")
+                //url:/oauth/check_token allow check token
+                .checkTokenAccess("isAuthenticated()")
                 .allowFormAuthenticationForClients();
     }
 
-//    /**
-//     *
-//     * @param endpoints
-//     * @throws Exception
-//     */
-//    @Override
-//    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-//        endpoints.authenticationManager(authenticationManager);
-//    }
 
     /**
      * 功能：认证服务器会给哪些第三方应用发令牌
-     * 	   覆盖了该方法，application.properties里配置的
-     * 				security.oauth2.client.clientId = imooc
-     *				security.oauth2.client.clientSecret = imoocsecret
-     *	 就失效了
+     * 覆盖了该方法，application.properties里配置的
+     * security.oauth2.client.clientId = imooc
+     * security.oauth2.client.clientSecret = imoocsecret
+     * 就失效了
      */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+
+        //实现需要认证的接口跳转表单登录,安全=认证+授权
         clients
                 .inMemory()
                 .withClient("demoApp")
