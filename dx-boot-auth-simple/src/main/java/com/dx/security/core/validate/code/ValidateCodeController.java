@@ -27,14 +27,14 @@ import java.io.IOException;
 @RestController
 public class ValidateCodeController {
 	
-	//图片验证码
 	@Autowired
 	private ValidateCodeGenerator imageCodeGenerator;
 
-	//短信验证码
 	@Autowired
 	private ValidateCodeGenerator smsCodeGenerator;
-	
+
+	@Autowired
+	private SmsCodeSender smsCodeSender;
 
 	/**
 	 * session存取验证码策略
@@ -45,8 +45,7 @@ public class ValidateCodeController {
 	private ValidateCodeRepository validateCodeRepository;
 	
 	
-	@Autowired
-	private SmsCodeSender smsCodeSender; //短信验证码发送接口
+
 	
 	/**
 	 * 图片验证码
@@ -58,30 +57,16 @@ public class ValidateCodeController {
 	@GetMapping(SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX+"/image")
 	public void createCode(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
-//		ImageCode imageCode = createImageCode(request, response);
 		//调图片生成接口方式
 		ImageCode imageCode = (ImageCode) imageCodeGenerator.generator(new ServletWebRequest(request));
 		
 		/**
 		 * 不能存在session里了，应用调接口，具体依赖app还是browser项目，不同的实现
 		 */
-//		sessionStrategy.setAttribute(new ServletWebRequest(request), SESSION_KEY_IMAGE, imageCode);
 		validateCodeRepository.save(new ServletWebRequest(request), imageCode, ValidateCodeType.IMAGE);
 		
 		ImageIO.write(imageCode.getImage(), "JPEG", response.getOutputStream());
 	}
-
-	
-//	private ImageCode createImageCode(HttpServletRequest request, HttpServletResponse response) {
-//		//先从request里读取有没有长、宽、字符个数参数，有的话就用，没有用默认的
-//		int width  = ServletRequestUtils.getIntParameter(request, "width",securityProperties.getCode().getImage().getWidth());
-//    	
-//    	int height = ServletRequestUtils.getIntParameter(request, "height",securityProperties.getCode().getImage().getHeight());
-//    	
-//    	int charLength = this.securityProperties.getCode().getImage().getLength();
-//		VerifyCode verifyCode = new VerifyCode(width,height,charLength);
-//		return new ImageCode(verifyCode.getImage(),verifyCode.getText(),this.securityProperties.getCode().getImage().getExpireIn());
-//	}
 
 	/**
 	 * 短信验证码
@@ -98,8 +83,6 @@ public class ValidateCodeController {
 		/**
 		 * 不能把验证码存在session了，调接口，app和browser不同实现
 		 */
-//		sessionStrategy.setAttribute(new ServletWebRequest(request), SESSION_KEY_SMS, smsCode);
-		
 		validateCodeRepository.save(new ServletWebRequest(request) , smsCode, ValidateCodeType.SMS);
 		
 		//获取手机号

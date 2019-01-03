@@ -29,21 +29,12 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Autowired
     private SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
 
-    /**
-     *
-     */
     @Autowired
     private ValidateCodeRepository validateCodeRepository;
 
-    /**
-     * 自定义的认证失败后的处理器
-     */
     @Autowired
     private AuthenticationFailureHandler imoocAuthenticationFailureHandler;
 
-    /**
-     * 配置文件
-     */
     @Autowired
     private SecurityProperties securityProperties;
 

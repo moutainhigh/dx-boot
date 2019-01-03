@@ -37,25 +37,16 @@ import java.util.Set;
 @Slf4j
 public class ValidateCodeFilter extends OncePerRequestFilter implements InitializingBean {
 
-    /**
-     * 认证失败处理器
-     */
     private AuthenticationFailureHandler authenticationFailureHandler;
 
-    /**
-     * 验证码存储策略
-     */
     private ValidateCodeRepository validateCodeRepository;
+
+    private SecurityProperties securityProperties;
 
     /**
      * 需要拦截的url集合
      */
     private Set<String> urls = new HashSet<>();
-
-    /**
-     * 读取配置
-     */
-    private SecurityProperties securityProperties;
 
     /**
      * spring工具类
@@ -86,7 +77,6 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
-
         /**
          * 可配置的验证码校验
          * 判断请求的url和配置的是否有匹配的，匹配上了就过滤

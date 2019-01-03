@@ -32,8 +32,9 @@ public class RedisValidateCodeRepository implements ValidateCodeRepository {
     @Override
     public void save(ServletWebRequest request, ValidateCode code, ValidateCodeType validateCodeType) {
         String key = buildKey(request, validateCodeType);
+        ValidateCode tempCode = new ValidateCode(code.getCode(),code.getExpireTime());
         logger.info("--------->redis存进去了一个新的key：" + key + "，value：" + code + "<-----------");
-        redisTemplate.opsForValue().set(key, code, 30, TimeUnit.MINUTES);
+        redisTemplate.opsForValue().set(key, tempCode, 30, TimeUnit.MINUTES);
     }
 
     @Override
@@ -63,8 +64,9 @@ public class RedisValidateCodeRepository implements ValidateCodeRepository {
      * @date 2018年3月14日
      */
     private String buildKey(ServletWebRequest request, ValidateCodeType validateCodeType) {
-        //获取设备id
-        String deviceId = request.getHeader("deviceId");
+        //获取设备id,这里需要从请求头中获取
+        //String deviceId = request.getHeader("deviceId");
+        String deviceId = request.getParameter("deviceId");
         if (deviceId == null) {
             throw new ValidateCodeException("deviceId为空，请求头中未携带deviceId参数");
         }

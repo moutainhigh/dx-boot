@@ -1,5 +1,7 @@
 package com.dx.security.core.validate.code;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -11,7 +13,10 @@ import java.time.LocalDateTime;
  * @copyright Copyright (c) 文理电信
  * @since 2018-12-23
  */
+@Data
 public class ValidateCode implements Serializable{
+
+	private static final long serialVersionUID = -8366929034564774130L;
 
 	/**
 	 * 验证码
@@ -21,8 +26,7 @@ public class ValidateCode implements Serializable{
 	 * 过期时间点
 	 */
 	private LocalDateTime expireTime;
-	
-	
+
 	/**
 	 * @param code 验证码
 	 * @param expireTn 多少秒过期
@@ -48,23 +52,6 @@ public class ValidateCode implements Serializable{
 	 */
 	public boolean isExpired(){
 		return LocalDateTime.now().isAfter(expireTime);
-	}
-
-	
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public LocalDateTime getExpireTime() {
-		return expireTime;
-	}
-
-	public void setExpireTime(LocalDateTime expireTime) {
-		this.expireTime = expireTime;
 	}
 
 }

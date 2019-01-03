@@ -3,6 +3,7 @@ package com.dx.security.core.validate.code;
 import com.dx.security.core.exception.ValidateCodeException;
 import com.dx.security.core.properties.SecurityConstants;
 import com.dx.security.core.properties.SecurityProperties;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.InitializingBean;
@@ -33,32 +34,17 @@ import java.util.Set;
  * @since 2019-1-2
  */
 @Slf4j
+@Data
 public class SmsCodeFilter extends OncePerRequestFilter implements InitializingBean {
 
-    /**
-     * 认证失败处理器
-     */
     private AuthenticationFailureHandler authenticationFailureHandler;
 
-    /**
-     * 验证码存储dao
-     */
     private ValidateCodeRepository validateCodeRepository;
 
+    private Set<String> urls = new HashSet<String>();
 
-    /**
-     * 需要拦截的url集合
-     */
-    private Set<String> urls = new HashSet<>();
-
-    /**
-     * 读取配置
-     */
     private SecurityProperties securityProperties;
 
-    /**
-     * spring工具类
-     */
     private AntPathMatcher antPathMatcher = new AntPathMatcher();
 
     /**
@@ -112,18 +98,11 @@ public class SmsCodeFilter extends OncePerRequestFilter implements InitializingB
 
     /**
      * 校验验证码
-     *
-     * @param @param  request
-     * @param @throws ServletRequestBindingException
-     * @return void
-     * @throws ValidateCodeException
-     * @Description: 校验验证码
-     * @author lihaoyang
-     * @date 2018年3月2日
+     * @param request
+     * @throws ServletRequestBindingException
      */
     private void validate(ServletWebRequest request) throws ServletRequestBindingException {
         //拿出session中的ImageCode对象
-//		ValidateCode smsCodeInSession = (ValidateCode) sessionStrategy.getAttribute(request, ValidateCodeController.SESSION_KEY_SMS);
         //根据不同的存储策略调用不同的获取方式
         ValidateCode validateCode = validateCodeRepository.get(request, ValidateCodeType.SMS);
 
@@ -138,7 +117,6 @@ public class SmsCodeFilter extends OncePerRequestFilter implements InitializingB
         }
         if (validateCode.isExpired()) {
             //从session移除过期的验证码
-//			sessionStrategy.removeAttribute(request, ValidateCodeController.SESSION_KEY_SMS);
             validateCodeRepository.remove(request, ValidateCodeType.SMS);
             throw new ValidateCodeException("验证码已过期，请刷新验证码");
         }
@@ -146,33 +124,7 @@ public class SmsCodeFilter extends OncePerRequestFilter implements InitializingB
             throw new ValidateCodeException("验证码错误");
         }
         //验证通过，移除session中验证码
-//		sessionStrategy.removeAttribute(request, ValidateCodeController.SESSION_KEY_SMS);
         validateCodeRepository.remove(request, ValidateCodeType.SMS);
     }
-
-    public AuthenticationFailureHandler getAuthenticationFailureHandler() {
-        return authenticationFailureHandler;
-    }
-
-    public void setAuthenticationFailureHandler(AuthenticationFailureHandler authenticationFailureHandler) {
-        this.authenticationFailureHandler = authenticationFailureHandler;
-    }
-
-    public SecurityProperties getSecurityProperties() {
-        return securityProperties;
-    }
-
-    public void setSecurityProperties(SecurityProperties securityProperties) {
-        this.securityProperties = securityProperties;
-    }
-
-    public ValidateCodeRepository getValidateCodeRepository() {
-        return validateCodeRepository;
-    }
-
-    public void setValidateCodeRepository(ValidateCodeRepository validateCodeRepository) {
-        this.validateCodeRepository = validateCodeRepository;
-    }
-
 
 }
