@@ -24,7 +24,7 @@ public class ImoocJwtTokenEnhancer implements TokenEnhancer {
     public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
         //往jwt添加的自定义信息
         Map<String, Object> info = new HashMap<>();
-        info.put("company", "imooc");
+        info.put("company", "dx");
         info.put("product_code", "100");
         ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(info);
         return accessToken;

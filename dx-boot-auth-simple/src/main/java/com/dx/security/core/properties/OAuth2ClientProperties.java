@@ -18,8 +18,13 @@ public class OAuth2ClientProperties {
     private String clientSecret;
 
     /**
-     * 没配置就用默认值
+     * toke有效时间
      */
     private int accessTokenValiditySeconds = 3600;
+
+    /**
+     * refreshToken有效时间
+     */
+    private int refreshTokenValiditySeconds = 50000;
 
 }

@@ -31,11 +31,9 @@ public class TestEndpoints {
         return user;
     }
 
-//    @GetMapping("/api/{id}")
-//    public String getOrder(@PathVariable String id) {
-//        //for debug
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        return "order id : " + id;
-//    }
+    @GetMapping("/api/me2")
+    public Object getCurrentUser2(Authentication user) {
+        return user;
+    }
 
 }

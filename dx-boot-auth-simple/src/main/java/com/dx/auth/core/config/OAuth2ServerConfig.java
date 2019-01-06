@@ -1,14 +1,13 @@
 package com.dx.auth.core.config;
 
+import com.dx.security.core.properties.OAuth2ClientProperties;
 import com.dx.security.core.properties.SecurityProperties;
-import com.dx.security.core.validate.code.SmsCodeFilter;
-import com.dx.security.core.validate.code.ValidateCodeFilter;
-import com.dx.security.core.validate.code.ValidateCodeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.oauth2.config.annotation.builders.InMemoryClientDetailsServiceBuilder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -18,7 +17,7 @@ import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
-import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +40,9 @@ public class OAuth2ServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
     private UserDetailsService userDetailsService;
+
+    @Autowired
+    private SecurityProperties securityProperties;
 
     /**
      * token存在redis，默认是在内存
@@ -117,23 +119,43 @@ public class OAuth2ServerConfig extends AuthorizationServerConfigurerAdapter {
      */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
+        InMemoryClientDetailsServiceBuilder builder = clients.inMemory();
+        //判断是否在配置文件中进行配置客户端
+        if (!CollectionUtils.isEmpty(securityProperties.getOauth2().getClients())){
+            for (OAuth2ClientProperties client : securityProperties.getOauth2().getClients()) {
+
+                builder
+                        .withClient(client.getClientId())
+                        .secret(bCryptPasswordEncoder.encode("demoAppSecret"))
+                        .accessTokenValiditySeconds(12000)
+                        .authorizedGrantTypes("authorization_code", "client_credentials", "refresh_token",
+                                "password", "implicit")
+                        .scopes("all","read","write");
+
+
+            }
+        }
+
+
+
         //实现需要认证的接口跳转表单登录,安全=认证+授权
-        clients
-                .inMemory()
-                .withClient("demoApp")
-                .secret(bCryptPasswordEncoder.encode("demoAppSecret"))
-                //.secret("{noop}demoAppSecret")
-                //.secret("demoAppSecret")
-                .redirectUris("http://baidu.com")
-                //这些也可以配置也可以写死，看心情
-                .authorizedGrantTypes("authorization_code", "client_credentials", "refresh_token",
-                        "password", "implicit")
-                .scopes("all")
-                .resourceIds("oauth2-resource")
-                //refresh_token 有效期 可以长些
-                .accessTokenValiditySeconds(12000)
-                .refreshTokenValiditySeconds(50000);
+//        clients
+//                .inMemory()
+//                .withClient("demoApp")
+//                .secret(bCryptPasswordEncoder.encode("demoAppSecret"))
+//                //.secret("{noop}demoAppSecret")
+//                //.secret("demoAppSecret")
+//                .redirectUris("http://baidu.com")
+//                //这些也可以配置也可以写死，看心情
+//                .authorizedGrantTypes("authorization_code", "client_credentials", "refresh_token",
+//                        "password", "implicit")
+//                .scopes("all")
+//                .resourceIds("oauth2-resource")
+//                //refresh_token 有效期 可以长些
+//                .accessTokenValiditySeconds(12000)
+//                .refreshTokenValiditySeconds(50000);
     }
 }

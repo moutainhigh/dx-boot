@@ -2,6 +2,9 @@ package com.dx.security.core.properties;
 
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Description:个接口客户端，是数组，只有一个的话就不用这个了
  *
@@ -18,6 +21,6 @@ public class OAuth2Properties {
 	 */
 	private String jwtSigningKey = "imooc";
 	
-	private OAuth2ClientProperties[] clients = {};
+	private List<OAuth2ClientProperties> clients = new ArrayList<>();
 
 }

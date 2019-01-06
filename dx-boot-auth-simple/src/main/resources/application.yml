@@ -25,6 +25,13 @@ imooc:
         length: 5
 
 
+    oauth2:
+      clients[0]:
+        clientId: demoApp
+        clientSecret: demoAppSecret
+        accessTokenValiditySeconds: 40000
+
+
 
 
 
