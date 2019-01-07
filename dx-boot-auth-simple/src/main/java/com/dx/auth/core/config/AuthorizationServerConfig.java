@@ -33,7 +33,7 @@ import java.util.List;
  */
 @Configuration
 @EnableAuthorizationServer
-public class OAuth2ServerConfig extends AuthorizationServerConfigurerAdapter {
+public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -44,9 +44,6 @@ public class OAuth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     @Autowired
     private SecurityProperties securityProperties;
 
-    /**
-     * token存在redis，默认是在内存
-     */
     @Autowired
     private TokenStore tokenStore;
 
@@ -68,16 +65,15 @@ public class OAuth2ServerConfig extends AuthorizationServerConfigurerAdapter {
      */
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        endpoints.tokenStore(tokenStore)
+        endpoints
+                .tokenStore(tokenStore)
                 .authenticationManager(authenticationManager)
                 .userDetailsService(userDetailsService);
-
         /**
          * 使用JWT ，有两个增强器：
          * 	1，使用JwtAccessTokenConverter将uuid的token转为jwt，用秘钥签名
          *  2，由于默认生成uuid token的方法是private，所以通过ImoocJwtTokenEnhancer 往jwt里添加一些自定义的信息
-         *
-         *  在这里拿到增强器的链，把这两个增强器连起来
+         *        在这里拿到增强器的链，把这两个增强器连起来
          */
         if (jwtAccessTokenConverter != null && jwtTokenEnhancer != null) {
             //拿到增强器链
@@ -95,18 +91,23 @@ public class OAuth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     }
 
     /**
-     * @param oauthServer
+     * @param security
      * @throws Exception
      */
     @Override
-    public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
-        oauthServer
-                .realm("oauth2-resources")
-                //url:/oauth/token_key,exposes public key for token verification if using JWT tokens
-                .tokenKeyAccess("permitAll()")
-                //url:/oauth/check_token allow check token
-                .checkTokenAccess("isAuthenticated()")
-                .allowFormAuthenticationForClients();
+    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+        //其他应用要访问认证服务器的tokenKey（就是下边jwt签名的imooc）的时候需要经过身份认证，获取到秘钥才能解析jwt
+        //其他应用要访问认证服务器的tokenKey（就是下边jwt签名的imooc）的时候需要经过身份认证，获取到秘钥才能解析jwt
+        security
+                .tokenKeyAccess("isAuthenticated()");
+        //sso需要
+//        security
+//                .realm("oauth2-resources")
+//                //url:/oauth/token_key,exposes public key for token verification if using JWT tokens
+//                .tokenKeyAccess("permitAll()")
+//                //url:/oauth/check_token allow check token
+//                .checkTokenAccess("isAuthenticated()")
+//                .allowFormAuthenticationForClients();
     }
 
 
@@ -119,43 +120,19 @@ public class OAuth2ServerConfig extends AuthorizationServerConfigurerAdapter {
      */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-
         InMemoryClientDetailsServiceBuilder builder = clients.inMemory();
         //判断是否在配置文件中进行配置客户端
-        if (!CollectionUtils.isEmpty(securityProperties.getOauth2().getClients())){
+        if (!CollectionUtils.isEmpty(securityProperties.getOauth2().getClients())) {
             for (OAuth2ClientProperties client : securityProperties.getOauth2().getClients()) {
-
                 builder
                         .withClient(client.getClientId())
                         .secret(bCryptPasswordEncoder.encode("demoAppSecret"))
                         .accessTokenValiditySeconds(12000)
                         .authorizedGrantTypes("authorization_code", "client_credentials", "refresh_token",
                                 "password", "implicit")
-                        .scopes("all","read","write");
-
-
+                        .scopes("all", "read", "write");
             }
         }
-
-
-
-        //实现需要认证的接口跳转表单登录,安全=认证+授权
-//        clients
-//                .inMemory()
-//                .withClient("demoApp")
-//                .secret(bCryptPasswordEncoder.encode("demoAppSecret"))
-//                //.secret("{noop}demoAppSecret")
-//                //.secret("demoAppSecret")
-//                .redirectUris("http://baidu.com")
-//                //这些也可以配置也可以写死，看心情
-//                .authorizedGrantTypes("authorization_code", "client_credentials", "refresh_token",
-//                        "password", "implicit")
-//                .scopes("all")
-//                .resourceIds("oauth2-resource")
-//                //refresh_token 有效期 可以长些
-//                .accessTokenValiditySeconds(12000)
-//                .refreshTokenValiditySeconds(50000);
     }
 }

@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 
 /**
- * Description:自定义配置项
+ * Description: 核心自定义配置项
  * 这个类会读取application.properties里所有以imooc.security开头的配置项
  * imooc.security.browser.loginPage = /demo-login.html
  * 其中的browser的配置会读取到BrowserProperties中去

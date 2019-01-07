@@ -1,6 +1,7 @@
 package com.dx.security.app;
 
 import com.dx.security.app.jwt.ImoocJwtTokenEnhancer;
+import com.dx.security.app.token.MyRedisTokenStore;
 import com.dx.security.core.properties.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -12,7 +13,6 @@ import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
-import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
 /**
  * Description:token存储策略
@@ -37,7 +37,7 @@ public class TokenStoreConfig {
 	@Bean
 	@ConditionalOnProperty(prefix = "imooc.security.oauth2" , name = "storeType" , havingValue = "redis")
 	public TokenStore redisTokenStore(){
-		return new RedisTokenStore(redisConnectionFactory);
+		return new MyRedisTokenStore(redisConnectionFactory);
 	}
 	
 	/**
@@ -48,10 +48,8 @@ public class TokenStoreConfig {
 	@Configuration
 	@ConditionalOnProperty(prefix = "imooc.security.oauth2" , name = "storeType" , havingValue = "jwt" , matchIfMissing = true)
 	public static class JwtTokenConfig{
-		
 		@Autowired
 		private SecurityProperties securityProperties;
-		
 		/**
 		 * 配置jwt,通过jwtAccessTokenConverter，将uuid转换成JWT
 		 * @return
@@ -60,7 +58,6 @@ public class TokenStoreConfig {
 		public TokenStore jwtTokenStore(){
 			return new JwtTokenStore(jwtAccessTokenConverter());
 		}
-		
 		/**
 		 * 给JWT加签名
 		 * @return
@@ -72,7 +69,6 @@ public class TokenStoreConfig {
 			jwtAccessTokenConverter.setSigningKey(securityProperties.getOauth2().getJwtSigningKey());
 			return jwtAccessTokenConverter;
 		}
-		
 		/**
 		 * JWT增强器,扩展JWT所包含的信息
 		 * @return

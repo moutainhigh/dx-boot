@@ -5,10 +5,8 @@ spring:
   application:
     name: dx-boot-auth-simple
 
-
-
   redis:
-    open: false  # 是否开启redis缓存  true开启   false关闭
+    open: true  # 是否开启redis缓存  true开启   false关闭   一定要开
     database: 0
     ## Redis服务器地址
     host: 127.0.0.1
@@ -16,43 +14,27 @@ spring:
     port: 6379
     ## Redis服务器连接密码（默认为空）
     password:
-
+    timeout: 1s
+    jedis:
+      pool:
+        max-active: 20
+        max-idle: 20
+        min-idle: 10
+        max-wait: -1ms
 
 imooc:
   security:
+    ##验证码长度配置
     code:
       sms:
         length: 5
-
-
     oauth2:
+      storeType: jwt          #配置token存储类型（redis，jwt）
+      ##oauth2客户端配置
       clients[0]:
         clientId: demoApp
         clientSecret: demoAppSecret
         accessTokenValiditySeconds: 40000
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
