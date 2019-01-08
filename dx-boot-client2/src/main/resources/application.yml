@@ -1,0 +1,31 @@
+server:
+  port: 8082
+
+spring:
+  application: auth-client2
+
+security:
+  oauth2:
+    client:
+      #认证地址
+      user-authorization-uri: http://127.0.0.1:8088/oauth/authorize
+      ##获取token地址
+      access-token-uri: http://127.0.0.1:8088/oauth/token
+
+      clientId: demoApp
+
+      clientSecret: demoAppSecret
+    ##拿认证服务器密钥解析jwt
+    resource:
+      jwt:
+        key-uri: http://127.0.0.1:8088/oauth/token_key
+
+
+
+
+logging:
+  level:
+    root: info
+
+
+
