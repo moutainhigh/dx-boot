@@ -13,10 +13,8 @@
 
 
     <modules>
-        <module>dx-boot-auth-service</module>
+        <module>dx-boot-auth-simple</module>
         <module>dx-cloud-auth</module>
-        <module>dx-boot-auth-client</module>
-        <module>dx-boot-client2</module>
     </modules>
 
     

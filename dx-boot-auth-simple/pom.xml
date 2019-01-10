@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.dx</groupId>
-    <artifactId>dx-boot-auth-service</artifactId>
+    <artifactId>dx-boot-auth-simple</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>dx-boot-auth-service</name>
+    <name>dx-boot-auth-simple</name>
     <description>电信学习项目</description>
 
     <parent>
