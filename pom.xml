@@ -15,6 +15,7 @@
     <modules>
         <module>dx-boot-auth-simple</module>
         <module>dx-cloud-auth</module>
+        <module>dx-boot-security</module>
     </modules>
 
     

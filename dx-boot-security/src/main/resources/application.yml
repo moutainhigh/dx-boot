@@ -1,0 +1,16 @@
+server:
+  port:
+
+spring:
+  application: security
+
+
+
+
+
+logging:
+  level:
+    root: info
+
+
+
