@@ -11,11 +11,11 @@
     <name>dx-boot-single</name>
     <description>电信学习项目</description>
 
-
     <modules>
         <module>dx-boot-auth-simple</module>
         <module>dx-cloud-auth</module>
         <module>dx-boot-security</module>
+        <module>dx-boot-wagon</module>
     </modules>
 
     
