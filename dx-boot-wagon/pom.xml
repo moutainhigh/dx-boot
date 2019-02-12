@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>dx-boot-wagon</name>
-    <description>电信学习项目</description>
+    <description>test-wagon-project</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -28,8 +28,8 @@
         <service-path>/test/renren</service-path>
         <pack-name>${project.artifactId}-${project.version}.jar</pack-name>
         <remote-addr>192.168.0.171:22</remote-addr>
-        <remote-username>root</remote-username>
-        <remote-passwd>xxxx</remote-passwd>
+        <remote-username>user</remote-username>
+        <remote-passwd>gzmdqwer</remote-passwd>
 <!--        <remote-passwd>minstone</remote-passwd>-->
     </properties>
 
