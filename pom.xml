@@ -16,6 +16,7 @@
         <module>dx-cloud-auth</module>
         <module>dx-boot-security</module>
         <module>dx-boot-wagon</module>
+		<module>dx-boot-rabbitmq</module>
     </modules>
 
     
