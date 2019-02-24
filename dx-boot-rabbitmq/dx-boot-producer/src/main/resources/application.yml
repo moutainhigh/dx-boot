@@ -1,0 +1,16 @@
+server:
+  port:
+
+spring:
+  application: auth-simple
+
+
+
+
+
+logging:
+  level:
+    root: info
+
+
+
