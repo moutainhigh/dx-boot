@@ -1,8 +1,15 @@
 server:
-  port:
+  port: 8080
 
 spring:
   application: auth-simple
+  rabbitmq:
+    addresses: 127.0.0.1
+    username: steve
+    password: steve
+    virtual-host: /
+    #connection-timeout: 15000
+
 
 
 

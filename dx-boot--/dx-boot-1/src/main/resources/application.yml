@@ -1,0 +1,17 @@
+server:
+  port: 8081
+
+spring:
+  application: simple
+
+
+
+
+
+
+
+#logging:
+#  level:
+#    root: info
+
+
