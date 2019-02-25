@@ -1,0 +1,16 @@
+server:
+  port: 80
+
+spring:
+  application: temp
+
+
+
+
+
+#logging:
+#  level:
+#    root: info
+
+
+

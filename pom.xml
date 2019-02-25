@@ -17,6 +17,8 @@
         <module>dx-boot-security</module>
         <module>dx-boot-wagon</module>
 		<module>dx-boot-rabbitmq</module>
+        <module>dx-boot-mybatisplus</module>
+        <module>dx-boot-rest</module>
     </modules>
 
     
