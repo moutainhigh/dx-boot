@@ -1,9 +1,12 @@
 package com.dx.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.dx.bean.Order;
 import com.dx.bean.Student;
 import com.dx.service.IStudentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,19 +20,63 @@ import java.util.List;
  */
 @Slf4j
 @RestController
-@RequestMapping("/MybatisPlusStudentController")
+@RequestMapping
 public class StudentController {
 
     @Autowired
     private IStudentService studentService;
 
     /**
+     * 测试插入
+     * @return
+     */
+    @RequestMapping("/insert")
+    public Object insert(Student student){
+
+        Order order = new Order();
+//        String id = order.id();
+//        Order id1 = order.id("1");
+
+//        String id = order.getId();
+//        Order order1 = order.setId("");
+
+        String id = order.getId();
+
+
+        boolean insert = studentService.save(student);
+        return insert;
+    }
+
+    /**
+     * 测试删除
+     * @return
+     */
+    @RequestMapping("/delete/{id}")
+    public Object delete(@PathVariable String id){
+        boolean b = studentService.removeById(id);
+        return b;
+    }
+
+    /**
+     * 测试插入
+     * @return
+     */
+    @RequestMapping("/update")
+    public Object update(Student student){
+        boolean update = student.updateById();
+        return update;
+    }
+
+
+    /**
      * 测试list查询
      * @return
      */
-    @RequestMapping("/getStudentList")
-    public List<Student> getStudentList(){
-        List<Student> studentList = studentService.list(null);
+    @RequestMapping("/getList")
+    public List<Student> getList(){
+        QueryWrapper<Student> studentQueryWrapper = new QueryWrapper<>();
+        studentQueryWrapper.select("name");
+        List<Student> studentList = studentService.list(studentQueryWrapper);
         return studentList;
     }
 
@@ -37,59 +84,13 @@ public class StudentController {
      * 测试查询
      * @return
      */
-    @RequestMapping("/selectById")
-    public Object selectById(){
-        Student student = new Student();
-        student.setId("1");
-        Student student1 = student.selectById();
-        return student1;
-    }
-
-    /**
-     * 测试插入  枚举类型的数据   +++
-     * @return
-     */
-    @RequestMapping("/testInsert")
-    public Object testInsert(){
-        Student student = new Student();
-        //student.setId("5");
-        student.setName("test");
-        boolean insert = student.insert();
-        return insert;
-    }
-
-    /**
-     * 测试从前台获取枚举型的数据   插入
-     * @return
-     */
-    @RequestMapping("/testInsertEnum")
-    public Object testInsertEnum(Student student){
-
-        student.setName("asdjflasf");
-        boolean insert = student.insert();
-        return insert;
-    }
-
-
-
-    /**
-     * 测试从前台获取枚举型的数据   插入
-     * @return
-     */
-    @RequestMapping("/getListEnum")
-    public Object getListEnum(){
-        List<Student> studentList = studentService.list(null);
-        for (Student student1 : studentList) {
-            System.out.println(student1);
-        }
-        return studentList;
-    }
-
-    @RequestMapping("/getStudentInfo")
-    public Object getStudentInfo(){
-        Student student =studentService.getgetStudentInfo();
+    @RequestMapping("/get/{id}")
+    public Object get(@PathVariable String id){
+        Student student = studentService.getById(id);
         return student;
     }
+
+
 
 
 }

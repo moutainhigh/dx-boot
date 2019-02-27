@@ -12,13 +12,4 @@ import java.util.List;
 @Mapper
 public interface IStudentMapper extends BaseMapper<Student> {
 
-    Integer updateList(List<Student> studentList);
-
-    List<Student> selectMyPage(RowBounds rowBounds, @Param("ew") Wrapper wrapper);
-
-
-    List<Student> ifChoese();
-
-
-    Student getgetStudentInfo();
 }

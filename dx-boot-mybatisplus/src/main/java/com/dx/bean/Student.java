@@ -1,9 +1,9 @@
 package com.dx.bean;
 
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
@@ -14,6 +14,7 @@ import java.io.Serializable;
  * 版权所有：Copyright 2018 by 文理小电信
  */
 @Data
+@Accessors()
 @TableName("t_student")
 public class Student extends Model<Student> {
     /**
@@ -25,7 +26,13 @@ public class Student extends Model<Student> {
     /**
      * 学生姓名
      */
-    private String name;
+    private String stuName;
+
+    /**
+     * 逻辑删除
+     */
+    @TableLogic
+    private String isDel;
 
 
 

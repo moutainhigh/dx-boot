@@ -10,9 +10,4 @@ import com.dx.bean.Student;
  */
 public interface IStudentService extends IService<Student> {
 
-    public boolean saveList();
-
-    Student getgetStudentInfo();
-
-
 }

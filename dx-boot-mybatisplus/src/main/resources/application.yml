@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8083
 
 spring:
   jackson:
@@ -10,7 +10,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
     druid:
-      url: jdbc:mysql://127.0.0.1:3306/boot?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=true
+      url: jdbc:mysql://127.0.0.1:3306/dx?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=true
       username: root
       password: root
     initial-size: 1
@@ -23,8 +23,8 @@ mybatis-plus:
   type-handlers-package: com.dx.handlers
   mapper-locations: classpath:mapper/**/*.xml
   #实体扫描，多个package用逗号或者分号分隔
-  typeAliasesPackage: com.dx.common.bean.base
-  typeEnumsPackage: com.dx.common.bean.enums
+  typeAliasesPackage: com.dx.bean
+  typeEnumsPackage: com.dx.bean
   global-config:
     db-config:
       db-type: mysql
@@ -37,8 +37,8 @@ mybatis-plus:
       #数据库大写下划线转换
       #capital-mode: true
       #逻辑删除配置
-      logic-delete-value: 0
-      logic-not-delete-value: 1
+      logic-delete-value: -1
+      logic-not-delete-value: 0
     #刷新mapper 调试神器
     refresh: true
     sql-parser-cache: true
