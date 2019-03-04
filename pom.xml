@@ -19,6 +19,7 @@
 		<module>dx-boot-rabbitmq</module>
         <module>dx-boot-mybatisplus</module>
         <module>dx-boot-rest</module>
+        <module>dx-boot-swagger</module>
     </modules>
 
     

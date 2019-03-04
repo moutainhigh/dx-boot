@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  application: swagger
+
+
+
+
+
+
+#logging:
+#  level:
+#    root: info
+
+
+
