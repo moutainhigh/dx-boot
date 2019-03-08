@@ -20,6 +20,8 @@
         <module>dx-boot-mybatisplus</module>
         <module>dx-boot-rest</module>
         <module>dx-boot-swagger</module>
+        <module>dx-boot-docker</module>
+        <module>dx-boot-reptile</module>
     </modules>
 
     
