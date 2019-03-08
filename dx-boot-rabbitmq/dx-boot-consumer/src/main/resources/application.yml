@@ -1,12 +1,12 @@
 server:
-  port: 8081
+  port: 8083
 
 spring:
   application: mq-simple
   rabbitmq:
     addresses: 127.0.0.1
-    username: steve
-    password: steve
+    username: guest
+    password: guest
     virtual-host: /
     #connection-timeout: 15000
 
@@ -14,9 +14,9 @@ spring:
 
 
 
-
-logging:
-  level:
-    root: info
+#
+#logging:
+#  level:
+#    root: info
 
 

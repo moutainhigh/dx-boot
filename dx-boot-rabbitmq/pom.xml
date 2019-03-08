@@ -6,7 +6,7 @@
     <groupId>com.dx</groupId>
     <artifactId>dx-boot-rabbitmq</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
     <name>dx-boot-rabbitmq</name>
     <description>电信学习项目</description>
@@ -14,6 +14,7 @@
     <modules>
         <module>dx-boot-producter</module>
         <module>dx-boot-consumer</module>
+        <module>dx-boot-all</module>
     </modules>
 
     <parent>
