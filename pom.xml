@@ -22,6 +22,7 @@
         <module>dx-boot-swagger</module>
         <module>dx-boot-docker</module>
         <module>dx-boot-reptile</module>
+        <module>dx-boot-netty</module>
     </modules>
 
     
