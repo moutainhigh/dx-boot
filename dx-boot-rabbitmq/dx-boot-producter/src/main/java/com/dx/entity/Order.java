@@ -1,32 +1,27 @@
 package com.dx.entity;
 
+import com.sun.xml.internal.ws.developer.Serialization;
 import lombok.Data;
 
 import java.io.Serializable;
 
 /**
- * Description:
+ * <br>
+ * 标题: 订单实体<br>
+ * 描述: 订单实体<br>
+ * 时间: 2018/09/06<br>
  *
- * @author yaoj
- * @version 1.0
- * @copyright Copyright (c) 文理电信
- * @since 2019-02-24
+ * @author zc
  */
 @Data
-public class Order implements Serializable {
+@Serialization
+public class Order implements Serializable{
 
-    /**
-     * 订单id
-     */
     private String id;
 
-    /**
-     * 订单名称
-     */
     private String name;
-
     /**
-     * 消息id
+     * 存储消息发送的唯一标识
      */
     private String messageId;
 

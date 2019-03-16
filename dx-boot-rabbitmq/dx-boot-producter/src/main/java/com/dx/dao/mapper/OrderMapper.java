@@ -2,7 +2,6 @@ package com.dx.dao.mapper;
 
 import com.dx.entity.Order;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 
 /**
  * <br>

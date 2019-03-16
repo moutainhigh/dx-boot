@@ -23,6 +23,8 @@
         <module>dx-boot-docker</module>
         <module>dx-boot-reptile</module>
         <module>dx-boot-netty</module>
+		<module>dx-boot-deeplearning</module>
+		<module>dx-boot-base</module>
     </modules>
 
     
