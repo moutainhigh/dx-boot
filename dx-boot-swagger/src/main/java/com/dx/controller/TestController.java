@@ -30,7 +30,7 @@ public class TestController {
             @ApiImplicitParam(name="name", value="用户姓名", dataType = "String", required=true, paramType="form"),
             @ApiImplicitParam(name="id", value="id", dataType = "int", required=false, paramType="form")
     })
-    @RequestMapping(value = "hello",method = {RequestMethod.POST})
+    @RequestMapping(value = "hello",method = {RequestMethod.POST,RequestMethod.GET})
     public String HelloWord(String name,Integer id) {
         return "Hello Word   name:" + name + "     id:   " + id;
     }
