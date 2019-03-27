@@ -25,6 +25,7 @@
         <module>dx-boot-netty</module>
 		<module>dx-boot-deeplearning</module>
 		<module>dx-boot-base</module>
+        <module>dx-boot-ocr</module>
     </modules>
 
     
