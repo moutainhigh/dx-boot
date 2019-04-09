@@ -2,6 +2,7 @@ package com.dx.consumer;
 
 import com.dx.entity.Order;
 import com.rabbitmq.client.Channel;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.*;
 import org.springframework.amqp.support.AmqpHeaders;
 import org.springframework.messaging.handler.annotation.Headers;
@@ -19,6 +20,7 @@ import java.util.Map;
  * @author zc
  */
 @Component
+@Slf4j
 public class OrderReceiver {
 
     /**
@@ -37,8 +39,8 @@ public class OrderReceiver {
     @RabbitHandler
     public void onOrderMessage(@Payload Order order, @Headers Map<String, Object> headers, Channel channel) throws Exception {
         // 消费者操作
-        System.out.println("收到消息：");
-        System.out.println("订单信息：" + order.toString());
+        log.info("收到消息：");
+        log.info("订单信息：" + order.toString());
 
         // 手动签收消息
         Long deliveryTag = (Long) headers.get(AmqpHeaders.DELIVERY_TAG);

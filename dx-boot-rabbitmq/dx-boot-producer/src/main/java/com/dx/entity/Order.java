@@ -1,6 +1,5 @@
 package com.dx.entity;
 
-import com.sun.xml.internal.ws.developer.Serialization;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -14,7 +13,6 @@ import java.io.Serializable;
  * @author zc
  */
 @Data
-@Serialization
 public class Order implements Serializable{
 
     private String id;

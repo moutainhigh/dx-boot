@@ -1,7 +1,5 @@
 package com.dx.dao.po;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.sun.xml.internal.ws.developer.Serialization;
 import lombok.Data;
 
 import java.io.Serializable;

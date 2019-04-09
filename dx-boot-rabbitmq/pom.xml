@@ -12,7 +12,7 @@
     <description>电信学习项目</description>
 
     <modules>
-        <module>dx-boot-producter</module>
+        <module>dx-boot-producer</module>
         <module>dx-boot-consumer</module>
     </modules>
 

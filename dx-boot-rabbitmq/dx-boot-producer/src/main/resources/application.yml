@@ -8,6 +8,9 @@ spring:
     username: guest
     password: guest
     virtual-host: /
+    listener:
+      simple:
+        acknowledge-mode: manual
     #connection-timeout: 15000
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
