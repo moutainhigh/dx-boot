@@ -26,6 +26,7 @@ public class Student extends Model<Student> {
     /**
      * 学生姓名
      */
+    @TableField("name")
     private String stuName;
 
     /**

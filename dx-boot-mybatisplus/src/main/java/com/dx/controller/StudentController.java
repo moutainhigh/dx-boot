@@ -75,7 +75,9 @@ public class StudentController {
     @RequestMapping("/getList")
     public List<Student> getList(){
         QueryWrapper<Student> studentQueryWrapper = new QueryWrapper<>();
-        studentQueryWrapper.select("name");
+        studentQueryWrapper.eq("name","张三100");
+        //studentQueryWrapper.between("is_del",0,1);
+        //studentQueryWrapper.like("name","1000");
         List<Student> studentList = studentService.list(studentQueryWrapper);
         return studentList;
     }

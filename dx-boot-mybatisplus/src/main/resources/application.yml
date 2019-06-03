@@ -31,7 +31,7 @@ mybatis-plus:
       #主键类型  AUTO:"数据库ID自增", INPUT:"用户输入ID",ID_WORKER:"全局唯一ID (数字类型唯一ID)", UUID:"全局唯一ID UUID";
       id-type: UUID
       #字段策略 IGNORED:"忽略判断",NOT_NULL:"非 NULL 判断"),NOT_EMPTY:"非空判断"
-      field-strategy: IGNORED
+      field-strategy: NOT_NULL
       #驼峰下划线转换
       column-underline: true
       #数据库大写下划线转换
@@ -53,9 +53,11 @@ mybatis-plus:
 
 
 
-#logging:
-#  level:
-#    root: info
-
+logging:
+  level:
+    root: warn
+    com.dx: trace
+  pattern:
+    console:
 
 
