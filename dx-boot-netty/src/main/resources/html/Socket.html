@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" charset="text/html; charset = utf-8">
+    <title>SocketTest</title>
+    <script type="text/javascript">
+        //初始化socket
+        var socket = null;
+        if (!window.WebSocket){
+            //window.WebSocket = window.
+            alert("不知道什么问题，断点来调试");
+        }
+        if (window.WebSocket) {
+            socket = new WebSocket("ws://localhost:8888/websocket");
+            socket.onmessage = function (ev) {
+                var ta = document.getElementById("responseContent");
+                ta.value += ev.data = "\r\n";
+            }
+            socket.onopen = function (ev) {
+                var ta = document.getElementById("responseContent");
+                ta.value = "浏览器支持socket ，可以进行操作"
+            }
+            socket.onclose = function (ev) {
+                var ta = document.getElementById("responseContent");
+                ta.value = "";
+                ta.value = "websocekt链接已经关闭！\r\n";
+            };
+        }else {
+            alert("你的浏览器不支持websocket")
+        }
+
+        //发送消息数据
+        function send(message) {
+            if (!window.WebSocket){
+                return;
+            }
+            if (socket.readyState == WebSocket.OPEN){
+                socket.send(message);
+            }else {
+                alert("webcosket 没有建立成功");
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+<form onsubmit="return false;">
+    <input type="text" name="message" value="" />
+    <br/><br/>
+    <input type="button" value="发送消息" onclick="send(this.form.message.value)"/>
+    <hr color="red">
+    <h2>客户端接收服务端返回的消息应答</h2>
+    <textarea id="responseContent" style="width: 1024px;height: 300px" >
+
+    </textarea>
+
+</form>
+
+
+</body>
+</html>
