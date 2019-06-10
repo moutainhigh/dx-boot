@@ -27,6 +27,8 @@
 		<module>dx-boot-base</module>
         <module>dx-boot-ocr</module>
         <module>dx-boot-mvc</module>
+        <module>dx-boot-shiro</module>
+        <module>dx-boot-wx</module>
     </modules>
 
     

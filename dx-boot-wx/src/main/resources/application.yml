@@ -1,0 +1,19 @@
+server:
+  port: 80
+
+spring:
+  application: wx
+  mvc:
+    view:
+      suffix: .html
+
+
+
+
+
+#logging:
+#  level:
+#    root: info
+
+
+
