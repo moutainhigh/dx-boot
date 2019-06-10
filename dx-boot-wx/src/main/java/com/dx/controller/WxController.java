@@ -28,7 +28,7 @@ public class WxController {
     ObjectMapper objectMapper = new ObjectMapper();
 
     @RequestMapping("/wxLogin")
-    public String get(){
+    public String get() {
         String backUrl = "http://2523a423r4.qicp.vip/WxAuth/callBack";
 
         String url = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
@@ -38,14 +38,14 @@ public class WxController {
                 "&scope=snsapi_userinfo" +
                 "&state=STATE#wechat_redirect";
 
-      log.info("调用了回调");
+        log.info("调用了回调");
 
         return "redirect:" + url;
     }
 
     @ResponseBody
     @RequestMapping("/WxAuth/callBack")
-    public Object get(HttpServletRequest request){
+    public Object get(HttpServletRequest request) {
 
         String code = request.getParameter("code");
         String url = "https://api.weixin.qq.com/sns/oauth2/access_token" +
@@ -82,12 +82,8 @@ public class WxController {
         // 2：如果没跳转跳转到绑定用户界面
 
 
-
-
-        return "您登录成功后，后台获取到您的信息是："+userInfo;
+        return "您登录成功后，后台获取到您的信息是：" + userInfo;
     }
-
-
 
 
 }
