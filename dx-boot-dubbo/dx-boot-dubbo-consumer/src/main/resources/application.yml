@@ -1,0 +1,30 @@
+server:
+  port: 8081
+management:
+  server:
+    port: 8083
+  health:
+    dubbo:
+      status:
+        defaults: memory
+
+spring:
+  application:
+    name: dubbo-customer
+
+dubbo:
+  application:
+    id: dubbo-consumer-demo
+    name: dubbo-consumer-demo
+  registry:
+    id: my-registry
+    address: zookeeper://127.0.0.1:2181
+
+
+
+
+demo:
+  service:
+    version: 1.0
+
+

@@ -30,6 +30,7 @@
         <module>dx-boot-shiro</module>
         <module>dx-boot-wx</module>
         <module>dx-boot-wxjava</module>
+        <module>dx-boot-dubbo</module>
     </modules>
 
     
