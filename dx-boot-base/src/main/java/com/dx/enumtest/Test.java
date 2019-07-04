@@ -15,18 +15,40 @@ public class Test {
 
 
 
-        log.info("结果是 :" + StatusEnum.DOWN.getValue());
-        log.info("结果是 :" + StatusEnum.DOWN);
+//        log.info("结果是 :" + StatusEnum.DOWN.getValue());
+//        log.info("结果是 :" + StatusEnum.DOWN);
+//
+//        for (StatusEnum e : StatusEnum.values()) {
+//            System.out.println(e);
+//        }
+//
+//        StatusEnum down = StatusEnum.DOWN;
+//
+//        log.info("结果是：  " + down);
+//
+//        log.info("结果是：  " + StatusEnum.values());
 
-        for (StatusEnum e : StatusEnum.values()) {
-            System.out.println(e);
+
+
+
+
+
+//        for (Chenmo e : Chenmo.values()) {
+//            System.out.println(e);
+//        }
+
+        System.out.println(Chenmo.values());
+
+        Chenmo wanger = Chenmo.WANGER;
+
+        switch(wanger){
+            case WANGER:
+                System.out.println("WANGER");
+                break;
+            case WANGSI:
+                System.out.println("WANGSI");
+                break;
         }
-
-        StatusEnum down = StatusEnum.DOWN;
-
-        log.info("结果是：  " + down);
-
-        log.info("结果是：  " + StatusEnum.values());
 
 
     }

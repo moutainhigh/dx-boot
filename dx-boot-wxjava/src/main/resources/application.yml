@@ -22,7 +22,7 @@ logging:
 wx:
   mp:
     configs:
-      - appId:
-        secret: 
+      - appId: wx33b6ffd7fffa5c7e
+        secret: ad926844c47b15c13ad95946bfecc086
         token: hello
         aesKey:

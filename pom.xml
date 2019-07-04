@@ -31,6 +31,7 @@
         <module>dx-boot-wx</module>
         <module>dx-boot-wxjava</module>
         <module>dx-boot-dubbo</module>
+        <module>dx-boot-dataSource</module>
     </modules>
 
     
