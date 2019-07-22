@@ -1,4 +1,4 @@
-package com.dx.dao.po;
+package com.dx.repository.po;
 
 import lombok.Data;
 

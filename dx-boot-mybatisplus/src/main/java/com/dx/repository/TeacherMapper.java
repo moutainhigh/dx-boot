@@ -1,4 +1,4 @@
-package com.dx.dao;
+package com.dx.repository;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

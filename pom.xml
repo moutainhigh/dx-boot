@@ -32,6 +32,8 @@
         <module>dx-boot-wxjava</module>
         <module>dx-boot-dubbo</module>
         <module>dx-boot-dataSource</module>
+        <module>dx-boot-fileupload</module>
+        <module>dx-boot-freemarker</module>
     </modules>
 
     

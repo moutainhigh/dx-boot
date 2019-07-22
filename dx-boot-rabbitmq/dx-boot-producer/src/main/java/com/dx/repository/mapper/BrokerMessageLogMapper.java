@@ -1,8 +1,7 @@
-package com.dx.dao.mapper;
+package com.dx.repository.mapper;
 
-import com.dx.dao.po.BrokerMessageLogPO;
+import com.dx.repository.po.BrokerMessageLogPO;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 

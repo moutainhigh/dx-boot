@@ -18,20 +18,13 @@ import javax.persistence.Id;
 @Entity(name = "t_test_user")
 @Data
 public class User{
-
     @Id
     @GeneratedValue
     private Long id;
-    @Column(nullable = false, unique = true)
+    @Column
     private String userName;
-    @Column(nullable = false)
-    private String passWord;
-    @Column(nullable = false, unique = true)
+    @Column
     private String email;
-    @Column(nullable = true, unique = true)
-    private String nickName;
-    @Column(nullable = false)
-    private String regTime;
 
 
 }

@@ -1,0 +1,16 @@
+server:
+  port:
+
+spring:
+  application: temp
+
+
+
+filePath:
+
+#logging:
+#  level:
+#    root: info
+
+
+

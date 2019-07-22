@@ -1,8 +1,8 @@
 package com.dx.producer;
 
 import com.dx.constant.Constants;
-import com.dx.dao.mapper.BrokerMessageLogMapper;
-import com.dx.dao.po.BrokerMessageLogPO;
+import com.dx.repository.mapper.BrokerMessageLogMapper;
+import com.dx.repository.po.BrokerMessageLogPO;
 import com.dx.entity.Order;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;

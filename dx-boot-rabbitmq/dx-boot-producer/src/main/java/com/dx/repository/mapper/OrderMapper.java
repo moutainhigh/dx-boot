@@ -1,4 +1,4 @@
-package com.dx.dao.mapper;
+package com.dx.repository.mapper;
 
 import com.dx.entity.Order;
 import org.apache.ibatis.annotations.Mapper;

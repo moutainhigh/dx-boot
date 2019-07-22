@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.dx.dao.mapper.BrokerMessageLogMapper">
+<mapper namespace="com.dx.repository.mapper.BrokerMessageLogMapper">
 
-    <resultMap id="BaseResultMap" type="com.dx.dao.po.BrokerMessageLogPO">
+    <resultMap id="BaseResultMap" type="com.dx.repository.po.BrokerMessageLogPO">
         <id column="message_id" property="messageId" jdbcType="VARCHAR"/>
         <result column="message" property="message" jdbcType="VARCHAR"/>
         <result column="try_count" property="tryCount" jdbcType="INTEGER"/>
@@ -20,7 +20,7 @@
         message_id,message,try_count,status,next_retry,create_time,update_time
     </sql>
 
-    <insert id="insert" parameterType="com.dx.dao.po.BrokerMessageLogPO">
+    <insert id="insert" parameterType="com.dx.repository.po.BrokerMessageLogPO">
         insert into broker_message_log(<include refid="BaseColumnInsert"/>)
         values(
         #{messageId,jdbcType=VARCHAR},
@@ -33,14 +33,14 @@
         )
     </insert>
 
-    <update id="changeBrokerMessageLogStatus" parameterType="com.dx.dao.po.BrokerMessageLogPO">
+    <update id="changeBrokerMessageLogStatus" parameterType="com.dx.repository.po.BrokerMessageLogPO">
         update broker_message_log
         set status = #{status,jdbcType=VARCHAR},
             update_time = sysdate()
         where message_id = #{messageId,jdbcType=VARCHAR}
     </update>
 
-    <update id="updateRetryCount" parameterType="com.dx.dao.po.BrokerMessageLogPO">
+    <update id="updateRetryCount" parameterType="com.dx.repository.po.BrokerMessageLogPO">
         update broker_message_log
         set try_count = try_count + 1,
             update_time = sysdate()
