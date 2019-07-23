@@ -34,6 +34,8 @@
         <module>dx-boot-dataSource</module>
         <module>dx-boot-fileupload</module>
         <module>dx-boot-freemarker</module>
+        <module>dx-boot-activiti</module>
+        <module>dx-boot-flowable</module>
     </modules>
 
     

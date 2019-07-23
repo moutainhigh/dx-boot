@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.dx</groupId>
-    <artifactId>dx-boot-fileupload</artifactId>
+    <artifactId>dx-boot-activiti</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>dx-boot-fileupload</name>
+    <name>dx-boot-activiti</name>
     <description>电信学习项目</description>
 
     <parent>
@@ -41,11 +41,12 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-freemarker</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--mysql数据库-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
         <!--lombok-->
         <dependency>
@@ -53,11 +54,10 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
-        <!-- Apache Commons -->
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.4</version>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-spring-boot-starter-basic</artifactId>
+            <version>6.0.0</version>
         </dependency>
 
 

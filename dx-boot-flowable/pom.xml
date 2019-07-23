@@ -4,20 +4,20 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.dx</groupId>
-    <artifactId>dx-boot-fileupload</artifactId>
+    <artifactId>dx-boot-flowable</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>dx-boot-fileupload</name>
+    <name>dx-boot-flowable</name>
     <description>电信学习项目</description>
 
-    <parent>
+    <!--<parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.3.RELEASE</version>
-        <!-- <version>1.5.9.RELEASE</version>-->
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
+        &lt;!&ndash; <version>1.5.9.RELEASE</version>&ndash;&gt;
+        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;
+    </parent>-->
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -26,7 +26,7 @@
     </properties>
 
     <dependencies>
-        <!-- 这个热部署的依赖放依赖中也可以 -->
+        <!--&lt;!&ndash; 这个热部署的依赖放依赖中也可以 &ndash;&gt;
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -39,39 +39,46 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-freemarker</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <!--lombok-->
+        &lt;!&ndash;lombok&ndash;&gt;
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>-->
+
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-engine</artifactId>
+            <version>6.4.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.3.176</version>
         </dependency>
 
-        <!-- Apache Commons -->
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.4</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.21</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.21</version>
         </dependency>
 
 
     </dependencies>
 
 
-    <build>
+   <!-- <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
-    </build>
+    </build>-->
 
     <!--maven仓库地址使用阿里的-->
     <repositories>

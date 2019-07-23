@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class FileController {
 
-    @RequestMapping("/fileUpload")
+   @RequestMapping("/fileUpload")
    private String fileUpload(){
         return "fileUpload";
    }
