@@ -36,6 +36,7 @@
         <module>dx-boot-freemarker</module>
         <module>dx-boot-activiti</module>
         <module>dx-boot-flowable</module>
+        <module>dx-boot-beetl</module>
     </modules>
 
     
