@@ -29,19 +29,17 @@ public class ZipTest {
             throw new RuntimeException("需要选择文件夹进行压缩");
         }
 
-
         //2.设置zipoutputstream输出流
-        setOutputStream(dirName,zipOutputStream);
+        setOutputStream(dirName, zipOutputStream);
 
         zipOutputStream.close();
-
 
         return true;
     }
 
 
     /**
-     * 给zipoutput设置内容
+     * 给zipoutput设置需要压缩的个个文件
      *
      * @param dirName
      * @param zipOutputStream
@@ -49,22 +47,15 @@ public class ZipTest {
     public void setOutputStream(String dirName, ZipOutputStream zipOutputStream) throws IOException {
         File file = new File(dirName);
         File[] files = file.listFiles();
-        //1.如果没有文件或文件夹
-        if (files.length == 0) {
-            zipOutputStream.putNextEntry(new ZipEntry(dirName.toString() + "/"));
-            zipOutputStream.closeEntry();
-        } else {
-            //2.如果有文件或文件夹
-            for (File tempFile : files) {
-                if (tempFile.isDirectory()) {
-                    setOutputStream(tempFile.getPath(), zipOutputStream);
-                } else {
-                    zipOutputStream.putNextEntry(new ZipEntry(tempFile.getName()));
-                    FileUtils.copyFile(tempFile, zipOutputStream);
-                    IOUtils.copy(new FileInputStream(tempFile),zipOutputStream);
+        for (File tempFile : files) {
+            if (tempFile.isDirectory()) {
+                setOutputStream(tempFile.getPath(), zipOutputStream);
+            } else {
+                zipOutputStream.putNextEntry(new ZipEntry(tempFile.getName()));
+                FileUtils.copyFile(tempFile, zipOutputStream);
+                IOUtils.copy(new FileInputStream(tempFile), zipOutputStream);
 
-                    zipOutputStream.closeEntry();
-                }
+                zipOutputStream.closeEntry();
             }
         }
     }
