@@ -37,6 +37,7 @@
         <module>dx-boot-activiti</module>
         <module>dx-boot-flowable</module>
         <module>dx-boot-beetl</module>
+        <module>dx-boot-pdf</module>
     </modules>
 
     
