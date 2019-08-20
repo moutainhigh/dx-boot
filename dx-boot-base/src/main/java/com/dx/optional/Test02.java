@@ -28,7 +28,7 @@ public class Test02 {
 
         System.out.println(min);
 
-        System.out.println("ok");
+        System.out.println("okkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
 
         String format = new DecimalFormat("#.###").format(20000);
 

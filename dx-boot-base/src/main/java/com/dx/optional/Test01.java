@@ -182,9 +182,9 @@ public class Test01 {
 
         List<Teacher> collect = teacherList.stream().filter(teacher -> {
 
-            Optional.ofNullable(teacher.getScore()).orElse(2);
+            Optional.ofNullable(teacher.getScore()).orElse(3);
 
-            teacher.setName("  姓名：   " + teacher.getName());
+            teacher.setName("  姓名：" + teacher.getName());
 
             teacher.setScore(teacher.getScore() + 2);
 
