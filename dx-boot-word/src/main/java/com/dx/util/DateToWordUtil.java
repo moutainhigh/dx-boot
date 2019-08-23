@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -89,6 +88,10 @@ public class DateToWordUtil {
                 //创建有6列的表格
                 Table table = new Table(6);
 
+                int width[] = {2,7,5,3,4,7};//设置每列宽度比例
+                table.setWidths(width);
+
+
                 document.add(new Paragraph(""));
 
                 table.setBorderWidth(1);
@@ -107,6 +110,8 @@ public class DateToWordUtil {
 
                 Cell cell = new Cell("序号");// 单元格
 
+                System.out.println("--------======================>>>>>>>>>>>>>>>>>>>" + cell.getWidth());
+
                 cell.setBackgroundColor(chade);
 
                 cell.setHeader(true);
@@ -119,7 +124,6 @@ public class DateToWordUtil {
                 cell = new Cell("字段名");// 单元格
 
                 cell.setBackgroundColor(chade);
-
                 table.addCell(cell);
 
                 cell = new Cell("类型");// 单元格
@@ -143,7 +147,6 @@ public class DateToWordUtil {
                 cell = new Cell("字段说明");// 单元格
 
                 cell.setBackgroundColor(chade);
-
                 table.addCell(cell);
 
                 table.endHeaders();// 表头结束
@@ -193,10 +196,6 @@ public class DateToWordUtil {
             e.printStackTrace();
 
         } catch (DocumentException e) {
-
-            e.printStackTrace();
-
-        } catch (IOException e) {
 
             e.printStackTrace();
 
