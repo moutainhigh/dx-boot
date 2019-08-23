@@ -38,6 +38,7 @@
         <module>dx-boot-flowable</module>
         <module>dx-boot-beetl</module>
         <module>dx-boot-pdf</module>
+        <module>dx-boot-word</module>
     </modules>
 
     

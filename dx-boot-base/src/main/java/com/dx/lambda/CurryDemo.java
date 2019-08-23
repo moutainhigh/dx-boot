@@ -11,6 +11,7 @@ import java.util.function.Function;
 public class CurryDemo {
 
 	public static void main(String[] args) {
+
 		// 实现了x+y的级联表达式
 		Function<Integer, Function<Integer, Integer>> fun = x -> y -> x
 				+ y;
