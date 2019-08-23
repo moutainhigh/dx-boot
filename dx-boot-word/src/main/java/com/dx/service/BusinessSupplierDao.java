@@ -1,7 +1,6 @@
 package com.dx.service;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.dx.Layout;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -17,7 +16,7 @@ import java.util.Map;
  * @since 2019/8/23
  */
 @Mapper
-public interface BusinessSupplierDao extends BaseMapper<Layout> {
+public interface BusinessSupplierDao extends BaseMapper {
 
 
     List<Map<String, Object>> listMap(@Param("sql") String sql);
