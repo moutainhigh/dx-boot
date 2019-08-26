@@ -50,7 +50,7 @@ public class DateToWordUtil {
 
         try {
             // 创建word文档
-            RtfWriter2.getInstance(document, new FileOutputStream("E:/word5.doc"));
+            RtfWriter2.getInstance(document, new FileOutputStream("E:/ces.doc"));
             // 设置文档标题
             document.open();
 
@@ -58,7 +58,7 @@ public class DateToWordUtil {
 
             Font f = new Font();
 
-            Paragraph p = new Paragraph("数据库表设计文档", new Font(Font.NORMAL, 24, Font.BOLDITALIC, new Color(0, 0, 0)));
+            Paragraph p = new Paragraph("数据库表设计文档", new Font(Font.NORMAL, 24, Font.BOLD, new Color(0, 0, 0)));
 
             p.setAlignment(1);
 
