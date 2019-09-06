@@ -39,6 +39,7 @@
         <module>dx-boot-beetl</module>
         <module>dx-boot-pdf</module>
         <module>dx-boot-word</module>
+        <module>dx-boot-datastructures</module>
     </modules>
 
     
