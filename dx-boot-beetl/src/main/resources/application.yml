@@ -1,16 +1,26 @@
 server:
-  port:
+  port: 8081
 
 spring:
   application: temp
-
-
+#  mvc:
+#    view:
+#      suffix: .html
+#      prefix: /templates/
+#
+#
+#beetl:
+#  enabled: true
+#  suffix: .html
+#  templatesPath: /templates/
 
 
 
 #logging:
 #  level:
 #    root: info
+
+
 
 
 

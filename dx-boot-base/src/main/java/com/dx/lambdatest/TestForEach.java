@@ -20,7 +20,7 @@ public class TestForEach {
         roster.add(new Person(Person.Sex.MALE, "Jake"));
         // JDK 8
         roster.stream().filter(p -> p.gender == Person.Sex.MALE)
-                .forEach(p -> System.out.println(p.name));
+                .forEach(p -> {System.out.println(p.name);p.setName("tom");});
         // JDK 7
         for (Person p : roster) {
             if (p.gender == Person.Sex.MALE) {
@@ -38,6 +38,22 @@ class Person {
 
     public Person(Sex gender, String name) {
         this.gender = gender;
+        this.name = name;
+    }
+
+    public Sex getGender() {
+        return gender;
+    }
+
+    public void setGender(Sex gender) {
+        this.gender = gender;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
 }
