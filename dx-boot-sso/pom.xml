@@ -4,16 +4,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.dx</groupId>
-    <artifactId>dx-boot-rabbitmq</artifactId>
+    <artifactId>dx-boot-sso</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>dx-boot-rabbitmq</name>
+    <name>dx-boot-sso</name>
     <description>电信学习项目</description>
 
     <modules>
-        <module>dx-boot-</module>
-        <module>dx-boot-</module>
+        <module>dx-boot-sso-app1</module>
+        <module>dx-boot-sso-app2</module>
     </modules>
 
     <parent>
@@ -43,6 +43,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!--lombok-->
         <dependency>
