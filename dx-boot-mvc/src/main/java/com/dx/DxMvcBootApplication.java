@@ -10,5 +10,4 @@ public class DxMvcBootApplication  {
         SpringApplication.run(DxMvcBootApplication.class, args);
     }
 
-
 }

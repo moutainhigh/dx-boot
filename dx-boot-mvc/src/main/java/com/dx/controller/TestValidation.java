@@ -1,14 +1,14 @@
-package com.dx.validation;
+package com.dx.controller;
 
 import com.dx.bean.Student;
 import com.dx.group.Insert;
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.util.Lists;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -20,6 +20,12 @@ import java.util.List;
 @RestController
 @Slf4j
 public class TestValidation {
+
+
+    @GetMapping("/get")
+    public String get(){
+        return "get";
+    }
 
     @RequestMapping("/test")
     public String test(@Validated(value = Insert.class) Student student) {

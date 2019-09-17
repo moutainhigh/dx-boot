@@ -1,4 +1,4 @@
-package com.dx.mvc;
+package com.dx.controller;
 
 import com.dx.bean.Teacher;
 import org.springframework.web.bind.annotation.RequestMapping;
