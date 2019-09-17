@@ -37,6 +37,13 @@ public class MvcConfig {
             e.printStackTrace();
         }
         //读取配置文件信息
+        beetlGroupUtilConfiguration.setConfigFileResource(patternResolver.getResource("classpath:beetl.properties"));
+        //beetlGroupUtilConfiguration.init();
+        //GroupTemplate groupTemplate = beetlGroupUtilConfiguration.getGroupTemplate();
+        //注册自定义标签
+        //groupTemplate.registerTag("MyTestTag", MyTestTag.class);
+
+        //读取配置文件信息
         return beetlGroupUtilConfiguration;
     }
 

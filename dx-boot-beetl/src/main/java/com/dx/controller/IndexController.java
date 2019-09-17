@@ -40,13 +40,6 @@ public class IndexController {
         return "show1";
     }
 
-    /*@GetMapping(path = "show2")
-    public String showTow(Map<String, Object> data) {
-        data.put("name", "Show2---->");
-        data.put("now", LocalDateTime.now().toString());
-        return "show2.html";
-    }*/
-
     @GetMapping(path = "show2")
     public String showTow(Map<String, Object> data) {
         data.put("name", "Show2---->");
