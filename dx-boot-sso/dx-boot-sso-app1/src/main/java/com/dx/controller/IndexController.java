@@ -1,11 +1,13 @@
 package com.dx.controller;
 
+import com.dx.bean.User;
+import com.dx.servcie.UserService;
+import com.dx.util.AppData;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -19,15 +21,31 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class IndexController {
 
+    @Autowired
+    private AppData data;
+
+    @Autowired
+    private UserService userService;
+
 
     @ResponseBody
     @RequestMapping("/login")
-    public String login(String user, HttpServletRequest request){
-        if (!StringUtils.isEmpty(user) && "admin".equals(user)){
-            request.getSession().setAttribute("user","admin");
-            return "登录成功";
-        }else {
+    public String login(User user, HttpSession session){
+
+        User tempUser = null;
+        if (user.getUsername()!=null){
+            tempUser = userService.login(user.getUsername(), user.getPassword());
+        }
+
+        if (tempUser == null) {
             return "登录失败";
+        }else {
+            User user1 = (User)session.getAttribute("user");
+            if (user1 != null){
+                userService.unLogin(user1.getUsername());
+            }
+            session.setAttribute("user",tempUser);
+            return "登录成功";
         }
     }
 
@@ -39,14 +57,17 @@ public class IndexController {
 
     @ResponseBody
     @RequestMapping("/get")
-    public String get(){
-        return "user:is admin";
+    public String get(HttpSession session){
+        User user = (User) session.getAttribute("user");
+        return "user: " + user;
     }
 
     @ResponseBody
     @RequestMapping("/unLogin")
     public String unLogin(HttpSession session){
+        User user = (User)session.getAttribute("user");
         session.removeAttribute("user");
+        userService.unLogin(user.getUsername());
         return "unLogin";
     }
 
