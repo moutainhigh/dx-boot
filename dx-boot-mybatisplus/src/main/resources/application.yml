@@ -13,9 +13,9 @@ spring:
       url: jdbc:mysql://127.0.0.1:3306/dx?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=true
       username: root
       password: root
-    initial-size: 1
-    max-active: 10
-    min-idle: 1
+      initial-size: 1
+      max-active: 10
+      min-idle: 1
 
 
 #mybatis

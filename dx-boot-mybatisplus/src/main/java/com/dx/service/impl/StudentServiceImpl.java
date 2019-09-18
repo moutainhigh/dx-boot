@@ -2,7 +2,7 @@ package com.dx.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.dx.bean.Student;
-import com.dx.repository.IStudentMapper;
+import com.dx.repository.StudentMapper;
 import com.dx.service.IStudentService;
 import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +16,6 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @Log
-public class StudentServiceImpl extends ServiceImpl<IStudentMapper, Student> implements IStudentService {
+public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> implements IStudentService {
 
 }
