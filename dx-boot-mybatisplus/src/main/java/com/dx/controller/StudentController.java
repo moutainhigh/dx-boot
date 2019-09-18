@@ -1,7 +1,6 @@
 package com.dx.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.dx.bean.Order;
 import com.dx.bean.Student;
 import com.dx.service.IStudentService;
 import lombok.extern.slf4j.Slf4j;
@@ -32,16 +31,6 @@ public class StudentController {
      */
     @RequestMapping("/insert")
     public Object insert(Student student){
-
-        Order order = new Order();
-//        String id = order.id();
-//        Order id1 = order.id("1");
-
-//        String id = order.getId();
-//        Order order1 = order.setId("");
-
-        String id = order.getId();
-
 
         boolean insert = studentService.save(student);
         return insert;
