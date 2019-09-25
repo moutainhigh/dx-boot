@@ -1,5 +1,7 @@
 # shiro复习
+
 ## **专业名词**
+   对应测试在test文件夹下
    - SecurityUtils:中设置SecurityManager，可以获取Subject  
         - Subject：中设置包含用户登录信息，可以进行登录、角色、权限判断
    - SecurityManager：中设置有Realm信息
@@ -12,7 +14,18 @@
 
 
 
+```
+Authorizing
 
+Authentication
+
+principal
+
+credentials
+
+acquired
+
+```
 
 
 

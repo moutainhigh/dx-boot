@@ -8,12 +8,15 @@ import org.apache.shiro.subject.Subject;
 import org.junit.Test;
 
 /**
- * <br>
- * 标题: IniRealmTest测试类<br>
- * 描述: 讲解IniRealmbr<br>
+ * description
  *
- * @author zc
- * @date 2018/05/02
+ *
+ *     完整的认证、鉴权的过程
+ *
+ *
+ *
+ * @author rockstarsteve
+ * @date 2019/09/25
  */
 public class IniRealmTest {
 
@@ -34,10 +37,15 @@ public class IniRealmTest {
         UsernamePasswordToken token = new UsernamePasswordToken("Mark","123456");
         subject.login(token);
 
-        // 是否认证
-        System.out.println("isAuthenticated:" + subject.isAuthenticated());
 
+
+        //-----------------------------认证、鉴权----------------------------------------//
+
+        //鉴用户user
+        System.out.println("isAuthenticated:" + subject.isAuthenticated());
+        //鉴角色role
         subject.checkRole("admin");
+        //鉴权限permission
         subject.checkPermission("user:delete");
         subject.checkPermission("user:update");
     }

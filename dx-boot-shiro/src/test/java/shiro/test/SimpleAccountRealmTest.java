@@ -9,17 +9,21 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * <br>
- * 标题: 测试类<br>
- * 描述: 测试认证的过程<br>
+ * description
  *
- * @author zc
- * @date 2018/04/27
+ *      使用SimpleAccountRealm
+ *      认证、鉴角色过程
+ *
+ * @author rockstarsteve
+ * @date 2019/09/25
  */
-public class AuthenticationTest {
+public class SimpleAccountRealmTest {
 
     private SimpleAccountRealm simpleAccountRealm = new SimpleAccountRealm();
 
+    /**
+     * 使用临时的内存的用户角色权限
+     */
     @Before
     public void init(){
         simpleAccountRealm.addAccount("Mark","123456","admin","user");

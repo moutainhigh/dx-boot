@@ -1,4 +1,4 @@
-package com.dx.shiro.test.realm;
+package shiro.realm;
 
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -17,24 +17,56 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * <br>
- * 标题: 自定义Realm<br>
- * 描述: Realm讲解<br>
+ * Description: com.dx.shiro.test.realm
  *
- * @author zc
- * @date 2018/05/02
+ *          自定义的realm
+ *
+ *
+ *
+ * @author yaoj
+ * @version 1.0
+ * @copyright Copyright (c) 文理电信
+ * @since 2019/9/25
  */
 public class CustomRealm extends AuthorizingRealm {
 
-    Map<String, String> userMap = new HashMap<String, String>(16);
-
+    Map<String, String> userMap = new HashMap<String, String>(){
+        {
+            userMap.put("tom", "f19b50d5e3433e65e6879d0e66632664");
+        }
+    };
     {
-        userMap.put("Mark", "283538989cef48f3d7d8a1c1bdf2008f");
+
         super.setName("customRealm");
     }
 
+
+
+
     /**
-     * 授权
+     * 1：认证
+     * @param token 主体传送过来的认证信息
+     * @return
+     * @throws AuthenticationException
+     */
+    @Override
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
+        // 获取用户名
+        String userName = (String) token.getPrincipal();
+        // 通过用户名到数据库中获取凭证
+        String password = getPasswordByUserName(userName);
+        if (password == null) {
+            return null;
+        }
+        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(userName, password, "");
+        authenticationInfo.setCredentialsSalt(ByteSource.Util.bytes(userName));
+        return authenticationInfo;
+    }
+
+    /**
+     * 2：授权
+     * @param principals
+     * @return
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
@@ -49,53 +81,43 @@ public class CustomRealm extends AuthorizingRealm {
         return authorizationInfo;
     }
 
+
+    //---------------------------------------方法-----------------------------------------------//
+
     /**
-     * 模拟从数据库或缓存中获取权限数据
+     *
+     * 获取用户的权限数据
+     * （模拟从数据库或缓存中获取权限数据）
      *
      * @param userName 用户名
      * @return 权限数据
      */
     private Set<String> getPermissionsByUserName(String userName) {
-        Set<String> permissions = new HashSet<String>(16);
+        Set<String> permissions = new HashSet<String>();
         permissions.add("user:delete");
         permissions.add("user:add");
         return permissions;
     }
 
+
     /**
-     * 模拟从数据库或缓存中获取角色数据
+     * 获取用户的角色数据
+     * （模拟从数据库或缓存中获取角色数据）
      *
      * @param userName 用户名
      * @return 角色数据
      */
     private Set<String> getRolesByUserName(String userName) {
-        Set<String> roles = new HashSet<String>(16);
+        Set<String> roles = new HashSet<String>();
         roles.add("admin");
         roles.add("user");
         return roles;
     }
 
-    /**
-     * 认证
-     *
-     * @param token 主体传送过来的认证信息
-     */
-    @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-        // 获取用户名
-        String userName = (String) token.getPrincipal();
-        // 通过用户名到数据库中获取凭证
-        String password = getPasswordByUserName(userName);
-        if (password == null) {
-            return null;
-        }
-        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo("Mark", password, "customRealm");
-        authenticationInfo.setCredentialsSalt(ByteSource.Util.bytes("Mark"));
-        return authenticationInfo;
-    }
 
     /**
-     * 模拟数据库查询凭证
+     * 获取用户密码
+     * （模拟数据库查询凭证）
      *
      * @param userName 用户名
      * @return 凭证
@@ -105,8 +127,13 @@ public class CustomRealm extends AuthorizingRealm {
         return userMap.get(userName);
     }
 
+
+    /**
+     * 主函数用来测试
+     * @param args
+     */
     public static void main(String[] args) {
-        Md5Hash md5Hash = new Md5Hash("123456", "Mark");
+        Md5Hash md5Hash = new Md5Hash("123456", "tom");
         System.out.println(md5Hash.toString());
     }
 

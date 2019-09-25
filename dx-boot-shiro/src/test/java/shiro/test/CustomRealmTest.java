@@ -1,6 +1,6 @@
 package shiro.test;
 
-import com.dx.shiro.test.realm.CustomRealm;
+import shiro.realm.CustomRealm;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
@@ -9,12 +9,16 @@ import org.apache.shiro.subject.Subject;
 import org.junit.Test;
 
 /**
- * <br>
- * 标题: 自定义Realm测试<br>
- * 描述: 测试自定义Realm<br>
+ * description
  *
- * @author zc
- * @date 2018/05/02
+ *      使用自定义的realm
+ *      完整的认证、鉴角色过程
+ *
+ *
+ *
+ *
+ * @author rockstarsteve
+ * @date 2019/09/25
  */
 public class CustomRealmTest {
 
@@ -24,19 +28,22 @@ public class CustomRealmTest {
 
         // 构建 SecurityManager
         DefaultSecurityManager defaultSecurityManager = new DefaultSecurityManager();
-        defaultSecurityManager.setRealm(customRealm);
 
+
+        //构建加密类
         HashedCredentialsMatcher matcher = new HashedCredentialsMatcher();
         matcher.setHashAlgorithmName("md5");
         matcher.setHashIterations(1);
 
         customRealm.setCredentialsMatcher(matcher);
 
+        defaultSecurityManager.setRealm(customRealm);
+
         // 主体提交认证请求
         SecurityUtils.setSecurityManager(defaultSecurityManager);
         Subject subject = SecurityUtils.getSubject();
 
-        UsernamePasswordToken token = new UsernamePasswordToken("Mark","123456");
+        UsernamePasswordToken token = new UsernamePasswordToken("tom","123456");
         subject.login(token);
 
         // 是否认证

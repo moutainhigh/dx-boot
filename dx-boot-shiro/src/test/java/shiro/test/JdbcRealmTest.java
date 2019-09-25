@@ -9,12 +9,16 @@ import org.apache.shiro.subject.Subject;
 import org.junit.Test;
 
 /**
- * <br>
- * 标题: JdbcRealmTest测试类<br>
- * 描述: 讲解JdbcRealm<br>
  *
- * @author zc
- * @date 2018/05/02
+ * description
+ *
+ *
+ *      【还没有看】，感觉没太多用，最好从写
+ *
+ *
+ *
+ * @author rockstarsteve
+ * @date 2019/09/25
  */
 public class JdbcRealmTest {
 
