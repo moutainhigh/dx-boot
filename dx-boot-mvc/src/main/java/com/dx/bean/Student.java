@@ -2,10 +2,10 @@ package com.dx.bean;
 
 import com.dx.group.Insert;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 /**
  * @author yaoj
@@ -14,8 +14,7 @@ import javax.validation.constraints.NotNull;
  * @since 2019-4-15
  */
 @Data
-@RequiredArgsConstructor(staticName = "of")
-public class Student {
+public class Student implements Serializable {
 
     @NotBlank(message = "id不能为空",groups = Insert.class)
     private String id;
@@ -24,4 +23,11 @@ public class Student {
     private Integer age;
 
 
+    public Student(String id,Integer age) {
+        this.id = id;
+        this.age = age;
+    }
+
+    public Student() {
+    }
 }

@@ -48,6 +48,10 @@ public class IniRealmTest {
         //鉴权限permission
         subject.checkPermission("user:delete");
         subject.checkPermission("user:update");
+
+
+        //退出
+        subject.logout();
     }
 
 }

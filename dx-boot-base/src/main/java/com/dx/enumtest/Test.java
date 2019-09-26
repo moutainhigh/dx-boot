@@ -43,10 +43,10 @@ public class Test {
 
         switch(wanger){
             case WANGER:
-                System.out.println("WANGER");
+                System.out.println(wanger);
                 break;
             case WANGSI:
-                System.out.println("WANGSI");
+                System.out.println(wanger);
                 break;
         }
 

@@ -31,8 +31,6 @@ public class TestValidation {
     public String test(@Validated(value = Insert.class) Student student) {
 
 
-        Student.of().setId("123");
-
         List<String> list = Lists.newArrayList();
         log.info("学生的结果是" + student);
 

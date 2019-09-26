@@ -1,15 +1,18 @@
 server:
-  port: 8081
+  port: 8084
 
 spring:
   application: temp
 
+  cache:
+    type: ehcache
+    ehcache:
+      config: classpath:/ehcache.xml
 
 
 
-
-#logging:
-#  level:
+#logging:classpath:resource.properties
+#  level:=classpath:/ehcache.xml
 #    root: info
 
 
