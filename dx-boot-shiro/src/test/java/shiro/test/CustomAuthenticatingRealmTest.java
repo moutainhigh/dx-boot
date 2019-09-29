@@ -2,11 +2,14 @@ package shiro.test;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authc.credential.CredentialsMatcher;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.subject.Subject;
+import org.junit.Before;
 import org.junit.Test;
 import shiro.realm.CustomAuthenticatingRealm;
+import shiro.realm.MyCredentialsMatcher;
 
 /**
  * description
@@ -22,6 +25,14 @@ import shiro.realm.CustomAuthenticatingRealm;
  */
 public class CustomAuthenticatingRealmTest {
 
+    CredentialsMatcher credentialsMatcher;
+
+    @Before
+    public void befor(){
+        credentialsMatcher = new MyCredentialsMatcher();
+    }
+
+
     @Test
     public void  testAuthentication(){
         CustomAuthenticatingRealm customRealm = new CustomAuthenticatingRealm();
@@ -34,8 +45,9 @@ public class CustomAuthenticatingRealmTest {
         HashedCredentialsMatcher matcher = new HashedCredentialsMatcher();
         matcher.setHashAlgorithmName("md5");
         matcher.setHashIterations(1);
-
         customRealm.setCredentialsMatcher(matcher);
+
+//        customRealm.setCredentialsMatcher(credentialsMatcher);
 
         defaultSecurityManager.setRealm(customRealm);
 

@@ -6,7 +6,13 @@ spring:
 
 
 
-
+swagger:
+  title: SpringBoot学习
+  description: SpringBoot快速入门
+  version: 1.0.0
+  name: 测试项目
+  url: http://www.baidu.com
+  email: 670139644@qq.com
 
 #logging:
 #  level:

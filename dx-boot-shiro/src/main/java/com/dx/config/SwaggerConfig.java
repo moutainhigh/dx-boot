@@ -1,5 +1,7 @@
 package com.dx.config;
 
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -7,27 +9,45 @@ import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.schema.ModelRef;
-import springfox.documentation.service.*;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.service.Parameter;
 import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.google.common.collect.Lists.newArrayList;
-
 /**
+ * Description: com.dx.config
+ *
+ *      swagger配置类
+ *
  * @author yaoj
  * @version 1.0
- * @copyright 广州明动软件有限公司 Copyright (c) 2019
- * @since 2019-3-1
+ * @copyright Copyright (c) 文理电信
+ * @since 2019/9/29
  */
+@ConfigurationProperties(prefix = "swagger")
 @Configuration
 @EnableSwagger2
+//@EnableWebMvc //必须存在
+@Data
 public class SwaggerConfig {
 
+    private String title = "SpringBoot学习";
+    private String description = "SpringBoot快速入门";
+    private String version = "1.0";
+
+    private String name = "测试项目";
+    private String url = "http://www.baidu.com";
+    private String email = "670139644@qq.com";
+
+    private String scanPackage = "com.dx";
+
+
+    //可以注入多个doket，也就是多个版本的api，可以在看到有三个版本groupName不能是重复的，v1和v2是ant风格匹配，配置文件
     @Bean
     public Docket createRestApi() {
         ParameterBuilder tokenPar = new ParameterBuilder();
@@ -38,17 +58,19 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.dx"))
+                .apis(RequestHandlerSelectors.basePackage(scanPackage))
                 .paths(PathSelectors.any())
                 .build().globalOperationParameters(pars)  ;
     }
 
+
     private ApiInfo apiInfo() {
+        Contact contact = new Contact(name, url, email);
         return new ApiInfoBuilder()
-                .title("个人测试")
-                .description("个人测试用api")
-                .termsOfServiceUrl("http://blog.csdn.net/penyoudi1")
-                .version("1.0")
+                .title(title)
+                .description(description)
+                .contact(contact)
+                .version(version)
                 .build();
     }
 

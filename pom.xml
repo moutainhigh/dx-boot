@@ -12,34 +12,35 @@
     <description>电信学习项目</description>
 
     <modules>
-        <module>dx-boot-auth-simple</module>
-        <module>dx-cloud-auth</module>
-        <module>dx-boot-security</module>
-        <module>dx-boot-wagon</module>
-		<module>dx-boot-rabbitmq</module>
-        <module>dx-boot-mybatisplus</module>
-        <module>dx-boot-rest</module>
-        <module>dx-boot-swagger</module>
-        <module>dx-boot-docker</module>
-        <module>dx-boot-reptile</module>
-        <module>dx-boot-netty</module>
-		<module>dx-boot-deeplearning</module>
-		<module>dx-boot-base</module>
-        <module>dx-boot-ocr</module>
+<!--        <module>dx-boot-auth-simple</module>-->
+<!--        <module>dx-cloud-auth</module>-->
+<!--        <module>dx-boot-security</module>-->
+<!--        <module>dx-boot-wagon</module>-->
+<!--		<module>dx-boot-rabbitmq</module>-->
+<!--        <module>dx-boot-mybatisplus</module>-->
+<!--        <module>dx-boot-rest</module>-->
+<!--        <module>dx-boot-docker</module>-->
+<!--        <module>dx-boot-reptile</module>-->
+<!--        <module>dx-boot-netty</module>-->
+<!--		<module>dx-boot-deeplearning</module>-->
+<!--		<module>dx-boot-base</module>-->
+<!--        <module>dx-boot-ocr</module>-->
         <module>dx-boot-mvc</module>
         <module>dx-boot-shiro</module>
-        <module>dx-boot-wx</module>
-        <module>dx-boot-wxjava</module>
-        <module>dx-boot-dubbo</module>
-        <module>dx-boot-dataSource</module>
-        <module>dx-boot-fileupload</module>
-        <module>dx-boot-freemarker</module>
-        <module>dx-boot-activiti</module>
-        <module>dx-boot-flowable</module>
-        <module>dx-boot-beetl</module>
-        <module>dx-boot-pdf</module>
-        <module>dx-boot-word</module>
-        <module>dx-boot-datastructures</module>
+<!--        <module>dx-boot-wx</module>-->
+<!--        <module>dx-boot-wxjava</module>-->
+<!--        <module>dx-boot-dubbo</module>-->
+<!--        <module>dx-boot-dataSource</module>-->
+<!--        <module>dx-boot-fileupload</module>-->
+<!--        <module>dx-boot-freemarker</module>-->
+<!--        <module>dx-boot-activiti</module>-->
+<!--        <module>dx-boot-flowable</module>-->
+<!--        <module>dx-boot-beetl</module>-->
+<!--        <module>dx-boot-pdf</module>-->
+<!--        <module>dx-boot-word</module>-->
+<!--        <module>dx-boot-datastructures</module>-->
+<!--        <module>dx-boot-sso</module>-->
+<!--        <module>dx-boot-jpa-mybatis</module>-->
     </modules>
 
     

@@ -1,6 +1,6 @@
-package com.dx.controller;
+package com.dx.swagger.controller;
 
-import com.dx.bean.UserEntity;
+import com.dx.swagger.bean.UserEntity;
 import io.swagger.annotations.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,9 +14,9 @@ import java.util.Map;
  * @since 2019-3-4
  */
 @RestController
-@RequestMapping("test")
+@RequestMapping("test2")
 @Api(value="测试接口Controller",tags="测试接口模块")
-public class TestController {
+public class Test2Controller {
 
 
     /**
@@ -32,7 +32,7 @@ public class TestController {
     })
     @RequestMapping(value = "hello",method = {RequestMethod.POST,RequestMethod.GET})
     public String HelloWord(String name,Integer id) {
-        return "Hello Word   name:" + name + "     id:   " + id;
+        return "2222222222222222Hello Word   name:" + name + "     id:   " + id;
     }
 
 

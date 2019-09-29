@@ -4,6 +4,8 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.credential.DefaultPasswordService;
+import org.apache.shiro.authc.credential.PasswordService;
 import org.apache.shiro.realm.AuthenticatingRealm;
 import org.apache.shiro.util.ByteSource;
 
@@ -24,6 +26,10 @@ import java.util.Map;
  * @since 2019/9/25
  */
 public class CustomAuthenticatingRealm extends AuthenticatingRealm {
+
+    //设置密码加密
+    private PasswordService passwordService = new DefaultPasswordService();
+
 
     Map<String, String> userMap = new HashMap<String, String>();
     {
@@ -49,6 +55,10 @@ public class CustomAuthenticatingRealm extends AuthenticatingRealm {
         }
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(userName, password, "");
         authenticationInfo.setCredentialsSalt(ByteSource.Util.bytes(userName));
+
+//        SimpleAuthenticationInfo authenticationInfo
+//                = new SimpleAuthenticationInfo(userName,passwordService.encryptPassword(password),getName());
+
         return authenticationInfo;
     }
 
@@ -71,6 +81,21 @@ public class CustomAuthenticatingRealm extends AuthenticatingRealm {
 
 
 
+    /**
+     * 主函数用来测试
+     * @param args
+     */
+    public static void main(String[] args) {
+
+        PasswordService passwordService = new DefaultPasswordService();
+
+        String s = passwordService.encryptPassword("123456");
+
+        System.out.println(s);
+
+//        Md5Hash md5Hash = new Md5Hash("123456", "tom");
+//        System.out.println(md5Hash.toString());
+    }
 
 
 

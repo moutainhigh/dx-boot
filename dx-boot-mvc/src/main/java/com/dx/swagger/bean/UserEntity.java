@@ -1,4 +1,4 @@
-package com.dx.bean;
+package com.dx.swagger.bean;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
