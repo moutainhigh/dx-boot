@@ -1,6 +1,6 @@
 package com.dx.bean;
 
-import com.dx.group.Insert;
+import com.dx.validata.Insert;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;

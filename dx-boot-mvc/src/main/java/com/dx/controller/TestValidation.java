@@ -1,7 +1,7 @@
 package com.dx.controller;
 
 import com.dx.bean.Student;
-import com.dx.group.Insert;
+import com.dx.validata.Insert;
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.util.Lists;
 import org.springframework.validation.annotation.Validated;

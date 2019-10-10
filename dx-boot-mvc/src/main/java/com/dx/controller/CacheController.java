@@ -1,8 +1,12 @@
 package com.dx.controller;
 
+import com.dx.bean.CacheBean;
 import com.dx.bean.Student;
 import com.dx.service.CacheService;
+import com.dx.util.ValidatorUtils;
+import com.dx.validata.ViliGroupOne;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,10 +27,19 @@ public class CacheController {
     private CacheService cacheService;
 
 
-    @GetMapping("/cache/get")
-    public Object getStudent(int num){
 
-        List<Student> studentList = cacheService.getStudent(num);
+    @GetMapping("/cache/get")
+    public Object getStudent(
+//            @Validated
+//            @Range(min = 5, max = 9, message = "num只能从5-9")
+//                    int num
+            @Validated({ViliGroupOne.class})
+            CacheBean cacheBean
+    ){
+
+        ValidatorUtils.validateEntity(cacheBean, ViliGroupOne.class);
+
+        List<Student> studentList = cacheService.getStudent(cacheBean.getNum());
 
         return studentList;
     }

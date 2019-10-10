@@ -25,6 +25,13 @@ public class Test02 {
         t.binding("name","tom");
         String str = t.render();
         System.out.println(str);
+        /*ClasspathResourceLoader resourceLoader = new ClasspathResourceLoader("/tpl");
+        Configuration cfg = Configuration.defaultConfiguration();
+        GroupTemplate gt = new GroupTemplate(resourceLoader, cfg);
+        Template t = gt.getTemplate("/articlespecialwidget.html");
+//        t.binding("cmsWidgetbase","12");
+        String str = t.render();
+        System.out.println(str);*/
 
     }
 

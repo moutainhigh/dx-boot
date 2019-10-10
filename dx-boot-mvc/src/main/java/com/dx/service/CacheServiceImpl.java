@@ -26,7 +26,13 @@ public class CacheServiceImpl implements CacheService{
     @Cacheable(value = "studentList", key = "#num")
     @Override
     public List<Student> getStudent(int num) {
+
+
         List<Student> studentList = cacheMapper.getStudent(num);
+
+        if (true){
+            throw new NullPointerException("cuowu");
+        }
 
         return studentList;
     }
