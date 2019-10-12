@@ -1,6 +1,6 @@
 package com.dx.repository;
 
-import com.dx.bean.User;
+import com.dx.security.bean.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;

@@ -1,6 +1,6 @@
 package com.dx.filter;
 
-import com.dx.bean.User;
+import com.dx.security.bean.User;
 import com.dx.servcie.UserService;
 import com.dx.util.AppData;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package com.dx.config;
+package com.dx.security.config;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Value;

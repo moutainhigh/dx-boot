@@ -1,4 +1,4 @@
-package com.dx.config;
+package com.dx.security.config;
 
 import org.beetl.core.resource.WebAppResourceLoader;
 import org.beetl.ext.spring.BeetlGroupUtilConfiguration;

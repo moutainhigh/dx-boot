@@ -1,7 +1,7 @@
 package com.dx.test;
 
 
-import com.dx.bean.Student;
+import com.dx.security.bean.Student;
 import com.dx.dao.StudentRepository;
 import com.dx.mapper.StudentMapper;
 import org.junit.Test;

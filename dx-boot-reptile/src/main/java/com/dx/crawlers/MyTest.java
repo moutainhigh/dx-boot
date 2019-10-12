@@ -5,7 +5,7 @@ import cn.wanghaomiao.seimi.def.BaseSeimiCrawler;
 import cn.wanghaomiao.seimi.def.DefaultRedisQueue;
 import cn.wanghaomiao.seimi.struct.Request;
 import cn.wanghaomiao.seimi.struct.Response;
-import com.dx.bean.Href;
+import com.dx.security.bean.Href;
 import org.seimicrawler.xpath.JXDocument;
 
 import java.util.List;

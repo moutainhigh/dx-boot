@@ -1,4 +1,4 @@
-package com.dx.service;
+package com.dx.security.service;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.dx.api.DemoService;

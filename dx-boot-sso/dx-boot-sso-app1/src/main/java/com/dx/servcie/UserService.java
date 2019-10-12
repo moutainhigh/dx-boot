@@ -1,6 +1,6 @@
 package com.dx.servcie;
 
-import com.dx.bean.User;
+import com.dx.security.bean.User;
 import com.dx.util.AppData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

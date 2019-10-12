@@ -1,6 +1,6 @@
-package com.dx.service;
+package com.dx.security.service;
 
-import com.dx.bean.User;
+import com.dx.security.bean.User;
 
 /**
  * Description: com.dx.service

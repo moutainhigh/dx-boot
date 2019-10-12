@@ -1,7 +1,7 @@
-package com.dx.service;
+package com.dx.security.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.dx.bean.Student;
+import com.dx.security.bean.Student;
 
 /**
  * @author: yaoj

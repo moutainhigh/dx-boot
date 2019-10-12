@@ -1,4 +1,4 @@
-package com.dx.config;
+package com.dx.security.config;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.springframework.context.annotation.Bean;

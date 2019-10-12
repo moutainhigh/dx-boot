@@ -1,6 +1,7 @@
-package com.dx.service;
+package com.dx.security.service;
 
-import com.dx.bean.LoginUser;
+import com.dx.security.bean.LoginUser;
+import com.dx.security.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;

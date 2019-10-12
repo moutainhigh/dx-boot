@@ -1,4 +1,4 @@
-package com.dx.controller;
+package com.dx.security.controller;
 
 import com.dx.util.AuthUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;

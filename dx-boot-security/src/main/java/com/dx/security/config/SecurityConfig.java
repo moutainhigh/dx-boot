@@ -1,6 +1,6 @@
-package com.dx.config;
+package com.dx.security.config;
 
-import com.dx.passwordencodeer.NoPasswordEncoder;
+import com.dx.security.crypto.NoPasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;

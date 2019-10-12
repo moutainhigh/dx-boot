@@ -1,4 +1,4 @@
-package com.dx.bean;
+package com.dx.security.bean;
 
 import com.dx.validata.Insert;
 import lombok.Data;

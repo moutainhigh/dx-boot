@@ -1,4 +1,4 @@
-package com.dx.bean;
+package com.dx.security.bean;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;

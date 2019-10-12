@@ -1,7 +1,7 @@
 package com.dx.util;
 
 
-import com.dx.service.BusinessSupplierDao;
+import com.dx.security.service.BusinessSupplierDao;
 import com.lowagie.text.Font;
 import com.lowagie.text.*;
 import com.lowagie.text.rtf.RtfWriter2;

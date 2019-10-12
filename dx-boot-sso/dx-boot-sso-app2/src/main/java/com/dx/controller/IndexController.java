@@ -1,7 +1,7 @@
-package com.dx.controller;
+package com.dx.security.controller;
 
-import com.dx.bean.User;
-import com.dx.service.UserService;
+import com.dx.security.bean.User;
+import com.dx.security.service.UserService;
 import com.dx.util.AppData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

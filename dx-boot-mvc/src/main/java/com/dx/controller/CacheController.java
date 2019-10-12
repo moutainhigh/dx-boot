@@ -1,8 +1,8 @@
-package com.dx.controller;
+package com.dx.security.controller;
 
-import com.dx.bean.CacheBean;
-import com.dx.bean.Student;
-import com.dx.service.CacheService;
+import com.dx.security.bean.CacheBean;
+import com.dx.security.bean.Student;
+import com.dx.security.service.CacheService;
 import com.dx.util.ValidatorUtils;
 import com.dx.validata.ViliGroupOne;
 import org.springframework.beans.factory.annotation.Autowired;

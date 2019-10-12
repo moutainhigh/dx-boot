@@ -1,6 +1,6 @@
 package com.dx.client;
 
-import com.dx.handler.EchoClientHandler;
+import com.dx.security.handler.EchoClientHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;

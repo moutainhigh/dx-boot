@@ -1,9 +1,9 @@
-package com.dx.service.impl;
+package com.dx.security.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.dx.bean.Student;
+import com.dx.security.bean.Student;
 import com.dx.repository.StudentMapper;
-import com.dx.service.IStudentService;
+import com.dx.security.service.IStudentService;
 import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

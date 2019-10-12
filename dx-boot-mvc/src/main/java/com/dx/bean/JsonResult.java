@@ -1,4 +1,4 @@
-package com.dx.bean;
+package com.dx.security.bean;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

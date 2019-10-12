@@ -1,4 +1,4 @@
-package com.dx.service;
+package com.dx.security.service;
 
 import org.springframework.security.core.userdetails.User;
 

@@ -1,4 +1,4 @@
-package com.dx.config;
+package com.dx.security.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;

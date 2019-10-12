@@ -1,4 +1,4 @@
-package com.dx.controller;
+package com.dx.security.controller;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;

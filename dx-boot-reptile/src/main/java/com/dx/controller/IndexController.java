@@ -1,4 +1,4 @@
-package com.dx.controller;
+package com.dx.security.controller;
 
 import cn.wanghaomiao.seimi.spring.common.CrawlerCache;
 import cn.wanghaomiao.seimi.struct.CrawlerModel;

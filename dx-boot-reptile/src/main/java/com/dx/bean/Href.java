@@ -1,4 +1,4 @@
-package com.dx.bean;
+package com.dx.security.bean;
 
 import cn.wanghaomiao.seimi.annotation.Xpath;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.dx.controller;
+package com.dx.security.controller;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

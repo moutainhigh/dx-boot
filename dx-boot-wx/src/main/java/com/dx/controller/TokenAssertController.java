@@ -1,4 +1,4 @@
-package com.dx.controller;
+package com.dx.security.controller;
 
 import com.dx.util.WxTokenUtil;
 import lombok.extern.slf4j.Slf4j;

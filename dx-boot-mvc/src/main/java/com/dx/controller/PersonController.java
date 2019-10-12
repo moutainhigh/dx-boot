@@ -1,6 +1,6 @@
-package com.dx.controller;
+package com.dx.security.controller;
 
-import com.dx.bean.Person;
+import com.dx.security.bean.Person;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -1,6 +1,6 @@
 package com.dx.dao;
 
-import com.dx.bean.User;
+import com.dx.security.bean.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

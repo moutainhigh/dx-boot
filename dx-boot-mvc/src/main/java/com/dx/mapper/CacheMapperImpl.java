@@ -1,6 +1,6 @@
 package com.dx.mapper;
 
-import com.dx.bean.Student;
+import com.dx.security.bean.Student;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

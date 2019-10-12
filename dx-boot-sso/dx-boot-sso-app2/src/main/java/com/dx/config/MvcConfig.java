@@ -1,4 +1,4 @@
-package com.dx.config;
+package com.dx.security.config;
 
 import com.dx.interceptor.LoginInterceptor;
 import org.springframework.context.annotation.Configuration;

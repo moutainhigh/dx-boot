@@ -1,7 +1,7 @@
 package com.dx.lambdatest;
 
 import com.dx.entity.Order;
-import com.dx.service.OrderService;
+import com.dx.security.service.OrderService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

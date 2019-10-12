@@ -1,4 +1,4 @@
-package com.dx.bean;
+package com.dx.security.bean;
 
 import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;

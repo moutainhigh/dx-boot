@@ -1,6 +1,6 @@
-package com.dx.service;
+package com.dx.security.service;
 
-import com.dx.bean.Student;
+import com.dx.security.bean.Student;
 
 import java.util.List;
 

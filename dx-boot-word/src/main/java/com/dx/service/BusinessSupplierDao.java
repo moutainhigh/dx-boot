@@ -1,4 +1,4 @@
-package com.dx.service;
+package com.dx.security.service;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;

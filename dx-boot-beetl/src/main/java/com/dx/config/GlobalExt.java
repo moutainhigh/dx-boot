@@ -1,4 +1,4 @@
-package com.dx.config;
+package com.dx.security.config;
 
 import org.beetl.core.GroupTemplate;
 import org.beetl.core.Template;

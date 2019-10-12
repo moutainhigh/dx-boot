@@ -1,4 +1,4 @@
-package com.dx.service;
+package com.dx.security.service;
 
 import com.dx.constant.Constants;
 import com.dx.repository.mapper.BrokerMessageLogMapper;

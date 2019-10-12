@@ -1,6 +1,6 @@
-package com.dx.service;
+package com.dx.security.service;
 
-import com.dx.bean.Student;
+import com.dx.security.bean.Student;
 import com.dx.mapper.CacheMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;

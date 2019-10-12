@@ -1,6 +1,6 @@
 package com.dx.interceptor;
 
-import com.dx.bean.User;
+import com.dx.security.bean.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 

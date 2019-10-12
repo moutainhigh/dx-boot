@@ -1,6 +1,6 @@
-package com.dx.controller;
+package com.dx.security.controller;
 
-import com.dx.bean.Teacher;
+import com.dx.security.bean.Teacher;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

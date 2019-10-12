@@ -1,6 +1,6 @@
 package com.dx.lambdatest;
 
-import com.dx.service.UserService;
+import com.dx.security.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

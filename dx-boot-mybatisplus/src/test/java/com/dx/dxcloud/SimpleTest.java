@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.dx.bean.Teacher;
+import com.dx.security.bean.Teacher;
 import com.dx.repository.TeacherMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;

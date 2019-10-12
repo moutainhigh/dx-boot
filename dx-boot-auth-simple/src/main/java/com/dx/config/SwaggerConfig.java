@@ -1,4 +1,4 @@
-package com.dx.config;
+package com.dx.security.config;
 
 import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;

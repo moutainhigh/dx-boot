@@ -1,7 +1,7 @@
 package com.dx.test;
 
 
-import com.dx.bean.User;
+import com.dx.security.bean.User;
 import com.dx.dao.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;

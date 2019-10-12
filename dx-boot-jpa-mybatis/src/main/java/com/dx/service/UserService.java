@@ -1,6 +1,6 @@
-package com.dx.service;
+package com.dx.security.service;
 
-import com.dx.bean.User;
+import com.dx.security.bean.User;
 import com.dx.dao.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;

@@ -1,8 +1,8 @@
-package com.dx.controller;
+package com.dx.security.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.dx.bean.Student;
-import com.dx.service.IStudentService;
+import com.dx.security.bean.Student;
+import com.dx.security.service.IStudentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
