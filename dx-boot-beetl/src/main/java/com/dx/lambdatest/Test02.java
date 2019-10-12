@@ -18,20 +18,20 @@ import java.io.IOException;
 public class Test02 {
 
     public static void main(String[] args) throws IOException {
-        ClasspathResourceLoader resourceLoader = new ClasspathResourceLoader("/tpl");
+       /* ClasspathResourceLoader resourceLoader = new ClasspathResourceLoader("/tpl");
         Configuration cfg = Configuration.defaultConfiguration();
         GroupTemplate gt = new GroupTemplate(resourceLoader, cfg);
         Template t = gt.getTemplate("/hello.txt");
         t.binding("name","tom");
         String str = t.render();
-        System.out.println(str);
-        /*ClasspathResourceLoader resourceLoader = new ClasspathResourceLoader("/tpl");
+        System.out.println(str);*/
+        ClasspathResourceLoader resourceLoader = new ClasspathResourceLoader("/tpl");
         Configuration cfg = Configuration.defaultConfiguration();
         GroupTemplate gt = new GroupTemplate(resourceLoader, cfg);
         Template t = gt.getTemplate("/articlespecialwidget.html");
-//        t.binding("cmsWidgetbase","12");
+        t.binding("cmsWidgetbase","12");
         String str = t.render();
-        System.out.println(str);*/
+        System.out.println(str);
 
     }
 

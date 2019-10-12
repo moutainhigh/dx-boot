@@ -14,7 +14,7 @@
     <modules>
 <!--        <module>dx-boot-auth-simple</module>-->
 <!--        <module>dx-cloud-auth</module>-->
-<!--        <module>dx-boot-security</module>-->
+        <module>dx-boot-security</module>
 <!--        <module>dx-boot-wagon</module>-->
 <!--		<module>dx-boot-rabbitmq</module>-->
 <!--        <module>dx-boot-mybatisplus</module>-->

@@ -1,5 +1,5 @@
 server:
-  port:
+  port: 8081
 
 spring:
   application: security
@@ -8,9 +8,9 @@ spring:
 
 
 
-logging:
-  level:
-    root: info
+#logging:
+#  level:
+#    root: info
 
 
 
