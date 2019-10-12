@@ -1,4 +1,4 @@
-package com.dx.security.controller;
+package com.dx.controller;
 
 import com.dx.security.bean.User;
 import org.springframework.web.bind.annotation.RequestMapping;

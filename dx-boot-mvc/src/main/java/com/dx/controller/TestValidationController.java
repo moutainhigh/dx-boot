@@ -1,11 +1,10 @@
-package com.dx.security.controller;
+package com.dx.controller;
 
 import com.dx.security.bean.Student;
 import com.dx.validata.Insert;
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.util.Lists;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,15 +18,11 @@ import java.util.List;
  */
 @RestController
 @Slf4j
-public class TestValidation {
+public class TestValidationController {
 
 
-    @GetMapping("/get")
-    public String get(){
-        return "get";
-    }
 
-    @RequestMapping("/test")
+    @RequestMapping("/testvalidate")
     public String test(@Validated(value = Insert.class) Student student) {
 
 
