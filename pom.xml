@@ -14,7 +14,7 @@
     <modules>
 <!--        <module>dx-boot-auth-simple</module>-->
 <!--        <module>dx-cloud-auth</module>-->
-        <module>dx-boot-security</module>
+<!--        <module>dx-boot-security</module>-->
 <!--        <module>dx-boot-wagon</module>-->
 <!--		<module>dx-boot-rabbitmq</module>-->
 <!--        <module>dx-boot-mybatisplus</module>-->
@@ -23,9 +23,9 @@
 <!--        <module>dx-boot-reptile</module>-->
 <!--        <module>dx-boot-netty</module>-->
 <!--		<module>dx-boot-deeplearning</module>-->
-<!--		<module>dx-boot-base</module>-->
+		<module>dx-boot-base</module>
 <!--        <module>dx-boot-ocr</module>-->
-        <module>dx-boot-mvc</module>
+<!--        <module>dx-boot-mvc</module>-->
 <!--        <module>dx-boot-shiro</module>-->
 <!--        <module>dx-boot-wx</module>-->
 <!--        <module>dx-boot-wxjava</module>-->
