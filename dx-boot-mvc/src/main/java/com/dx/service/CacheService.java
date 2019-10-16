@@ -1,4 +1,4 @@
-package com.dx.security.service;
+package com.dx.service;
 
 import com.dx.security.bean.Student;
 
@@ -20,4 +20,5 @@ public interface CacheService {
      */
     public List<Student> getStudent(int num);
 
+    String getString(String formdata);
 }

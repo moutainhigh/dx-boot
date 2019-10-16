@@ -1,24 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="ehcache.xsd"
+         updateCheck="true" monitoring="autodetect"
+         dynamicConfig="true">
 
-    <diskStore path="java.io.tmpdir/ehcache"/>
+    <diskStore path="/cache"/>
+
+    <!--
+		默认缓存配置，
+		以下属性是必须的：
+			name ：cache的标识符，在一个CacheManager中必须唯一。
+			maxElementsInMemory ： 在内存中缓存的element的最大数目。
+			maxElementsOnDisk ： 在磁盘上缓存的element的最大数目。
+			eternal ： 设定缓存的elements是否有有效期。如果为true，timeouts属性被忽略。
+			overflowToDisk ： 设定当内存缓存溢出的时候是否将过期的element缓存到磁盘上。
+
+		以下属性是可选的：
+			 timeToIdleSeconds ： 缓存element在过期前的空闲时间。
+			 timeToLiveSeconds ： 缓存element的有效生命期。
+			 diskPersistent ： 在VM重启的时候是否持久化磁盘缓存，默认是false。
+			 diskExpiryThreadIntervalSeconds ： 磁盘缓存的清理线程运行间隔，默认是120秒.
+			 memoryStoreEvictionPolicy ： 当内存缓存达到最大，有新的element加入的时候，
+				移除缓存中element的策略。默认是LRU，可选的有LFU和FIFO
+	-->
+
 
     <!-- 设定缓存的默认数据过期策略 -->
     <defaultCache
             maxElementsInMemory="1000"
             eternal="false"
             overflowToDisk="true"
-            timeToIdleSeconds="10"
-            timeToLiveSeconds="20"
+            timeToIdleSeconds="0"
+            timeToLiveSeconds="10"
             diskPersistent="false"
-            diskExpiryThreadIntervalSeconds="120"/>
+            diskExpiryThreadIntervalSeconds="120"
+    />
 
 
+    <cache name="studentList" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="6" timeToLiveSeconds="60"
+           overflowToDisk="true"/>
 
+    <cache name="invoiceFpKeyCache"
+           maxElementsInMemory="1000"
+           maxElementsOnDisk="10000"
+           eternal="false"
+           overflowToDisk="true"
+           diskSpoolBufferSizeMB="20"
+           timeToIdleSeconds="10"
+           timeToLiveSeconds="10"
+           memoryStoreEvictionPolicy="LFU"
+           transactionalMode="off"
+    />
 
-    <cache name="studentList" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="6" timeToLiveSeconds="60" overflowToDisk="true"/>
-
-
-
+    <cache name="invoiceFpqqlshCache"
+           maxElementsInMemory="1000"
+           maxElementsOnDisk="10000"
+           eternal="false"
+           overflowToDisk="true"
+           diskSpoolBufferSizeMB="20"
+           timeToIdleSeconds="10"
+           timeToLiveSeconds="10"
+           memoryStoreEvictionPolicy="LFU"
+           transactionalMode="off"
+    />
 
 </ehcache>
