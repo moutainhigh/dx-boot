@@ -1,0 +1,16 @@
+server:
+  port: 8085
+
+spring:
+  application: temp
+
+
+
+
+
+#logging:
+#  level:
+#    root: info
+
+
+
