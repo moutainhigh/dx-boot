@@ -1,6 +1,6 @@
 package com.dx.controller;
 
-import com.dx.security.bean.User;
+import com.dx.bean.User;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

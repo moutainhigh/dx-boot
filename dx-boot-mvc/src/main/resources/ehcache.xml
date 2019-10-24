@@ -24,20 +24,26 @@
 				移除缓存中element的策略。默认是LRU，可选的有LFU和FIFO
 	-->
 
-
     <!-- 设定缓存的默认数据过期策略 -->
     <defaultCache
             maxElementsInMemory="1000"
+            maxElementsOnDisk="1000"
+
             eternal="false"
             overflowToDisk="true"
-            timeToIdleSeconds="0"
-            timeToLiveSeconds="10"
+            timeToIdleSeconds="10"
+            timeToLiveSeconds="30"
             diskPersistent="false"
             diskExpiryThreadIntervalSeconds="120"
     />
 
-
-    <cache name="studentList" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="6" timeToLiveSeconds="60"
+    <!-- 对于使用了studentList的每次缓存，有如下配置结构-->
+    <cache name="studentList"
+           maxElementsInMemory="100"
+           maxElementsOnDisk="100"
+           eternal="false"
+           timeToIdleSeconds="60"
+           timeToLiveSeconds="6000"
            overflowToDisk="true"/>
 
     <cache name="invoiceFpKeyCache"

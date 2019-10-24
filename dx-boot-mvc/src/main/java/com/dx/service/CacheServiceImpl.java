@@ -1,7 +1,7 @@
 package com.dx.service;
 
+import com.dx.bean.Student;
 import com.dx.mapper.CacheMapper;
-import com.dx.security.bean.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -16,6 +16,7 @@ import java.util.List;
  * @copyright Copyright (c) 文理电信
  * @since 2019/9/26
  */
+//@CacheConfig(cacheNames = "studentList")
 @Service
 public class CacheServiceImpl implements CacheService {
 
@@ -24,6 +25,7 @@ public class CacheServiceImpl implements CacheService {
 
 
     @Cacheable(value = "studentList", key = "#num")
+    //@Cacheable
     @Override
     public List<Student> getStudent(int num) {
 
@@ -34,14 +36,19 @@ public class CacheServiceImpl implements CacheService {
 //            throw new NullPointerException("自定义的空指针异常");
 //        }
 
-
-
-
         return studentList;
     }
 
     @Override
     public String getString(String formdata) {
         return "从数据库中获取的数据";
+    }
+
+    //@Cacheable
+    @Override
+    public List<Student> getDefualt(int num) {
+
+        List<Student> studentList = cacheMapper.getStudent(num);
+        return studentList;
     }
 }

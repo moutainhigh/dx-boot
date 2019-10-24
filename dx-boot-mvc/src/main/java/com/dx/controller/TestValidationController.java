@@ -1,6 +1,6 @@
 package com.dx.controller;
 
-import com.dx.security.bean.Student;
+import com.dx.bean.Student;
 import com.dx.validata.Insert;
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.util.Lists;

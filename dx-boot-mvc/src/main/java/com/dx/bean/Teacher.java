@@ -1,4 +1,4 @@
-package com.dx.security.bean;
+package com.dx.bean;
 
 import lombok.Data;
 

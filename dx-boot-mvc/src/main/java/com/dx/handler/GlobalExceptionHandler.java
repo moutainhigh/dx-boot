@@ -1,6 +1,6 @@
-package com.dx.security.handler;
+package com.dx.handler;
 
-import com.dx.security.bean.JsonResult;
+import com.dx.bean.JsonResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.ConversionNotSupportedException;

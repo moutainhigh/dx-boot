@@ -1,6 +1,6 @@
 package com.dx.mapper;
 
-import com.dx.security.bean.Student;
+import com.dx.bean.Student;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +20,7 @@ import java.util.List;
 public class CacheMapperImpl implements CacheMapper {
 
 
+    //@Cacheable
     @Override
     public List<Student> getStudent(int num) {
 

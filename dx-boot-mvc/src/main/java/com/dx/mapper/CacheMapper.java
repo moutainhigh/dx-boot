@@ -1,6 +1,7 @@
 package com.dx.mapper;
 
-import com.dx.security.bean.Student;
+
+import com.dx.bean.Student;
 
 import java.util.List;
 

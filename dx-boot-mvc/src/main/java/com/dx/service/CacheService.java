@@ -1,6 +1,7 @@
 package com.dx.service;
 
-import com.dx.security.bean.Student;
+
+import com.dx.bean.Student;
 
 import java.util.List;
 
@@ -21,4 +22,11 @@ public interface CacheService {
     public List<Student> getStudent(int num);
 
     String getString(String formdata);
+
+    /**
+     * 使用默认缓存
+     * @param num
+     * @return
+     */
+    List<Student> getDefualt(int num);
 }
