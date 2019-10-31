@@ -18,7 +18,7 @@ import java.io.*;
 public class UEditorController {
 
 
-    private String configFileName ="config.json";
+    private String configFileName ="static/config/config.json";
 
     @RequestMapping("/")
     private String showPage() {
