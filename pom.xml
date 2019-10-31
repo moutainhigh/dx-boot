@@ -25,13 +25,12 @@
 <!--		<module>dx-boot-deeplearning</module>-->
 <!--		<module>dx-boot-base</module>-->
 <!--        <module>dx-boot-ocr</module>-->
-        <module>dx-boot-mvc</module>
+<!--        <module>dx-boot-mvc</module>-->
 <!--        <module>dx-boot-shiro</module>-->
 <!--        <module>dx-boot-wx</module>-->
 <!--        <module>dx-boot-wxjava</module>-->
 <!--        <module>dx-boot-dubbo</module>-->
 <!--        <module>dx-boot-dataSource</module>-->
-<!--        <module>dx-boot-fileupload</module>-->
 <!--        <module>dx-boot-freemarker</module>-->
 <!--        <module>dx-boot-activiti</module>-->
 <!--        <module>dx-boot-flowable</module>-->
@@ -43,6 +42,9 @@
 <!--        <module>dx-boot-jpa-mybatis</module>-->
 <!--        <module>dx-boot-https</module>-->
 <!--        <module>dx-boot-jwt</module>-->
+<!--        <module>dx-boot-file</module>-->
+<!--        <module>dx-boot-i18n</module>-->
+        <module>dx-boot-ueditor</module>
     </modules>
 
 

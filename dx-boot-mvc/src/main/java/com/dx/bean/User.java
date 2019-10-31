@@ -1,5 +1,6 @@
 package com.dx.bean;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
@@ -11,14 +12,13 @@ import lombok.Data;
  * @since 2019/9/22
  */
 @Data
+@AllArgsConstructor
 public class User {
 
     private String name;
 
     private String nick;
 
-    public User(String name, String nick) {
-        this.name = name;
-        this.nick = nick;
-    }
+    private String address;
+
 }
