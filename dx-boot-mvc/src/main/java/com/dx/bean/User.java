@@ -3,6 +3,8 @@ package com.dx.bean;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * Description: com.dx.bean
  *
@@ -20,5 +22,7 @@ public class User {
     private String nick;
 
     private String address;
+
+    private Date birthDay;
 
 }

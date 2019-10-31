@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Description: com.dx.controller
@@ -25,10 +26,10 @@ public class VueController {
 
         ArrayList<User> userArrayList = new ArrayList<>();
 
-        userArrayList.add(new User("tom", "tom001", "湖南"));
-        userArrayList.add(new User("tom2", "tom002", "湖北"));
-        userArrayList.add(new User("tom", "tom001", "湖南"));
-        userArrayList.add(new User("tom2", "tom002", "湖北"));
+        userArrayList.add(new User("tom", "tom001", "湖南",new Date()));
+        userArrayList.add(new User("tom2", "tom002", "湖北",new Date()));
+        userArrayList.add(new User("tom", "tom001", "湖南",new Date()));
+        userArrayList.add(new User("tom2", "tom002", "湖北",new Date()));
 
         return userArrayList;
 
