@@ -1,4 +1,4 @@
-package com.dx.service;
+package com.dx.server.service;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;

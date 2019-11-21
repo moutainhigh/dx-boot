@@ -1,4 +1,4 @@
-package com.dx.service;
+package com.dx.server.service;
 
 import com.dx.config.I18nMessageSource;
 import org.springframework.beans.factory.annotation.Autowired;

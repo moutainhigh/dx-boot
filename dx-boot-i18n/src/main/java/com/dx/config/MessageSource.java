@@ -1,6 +1,6 @@
 package com.dx.config;
 
-import com.dx.service.QueryI18nDataService;
+import com.dx.server.service.QueryI18nDataService;
 import org.assertj.core.util.Lists;
 import org.assertj.core.util.Maps;
 import org.slf4j.Logger;

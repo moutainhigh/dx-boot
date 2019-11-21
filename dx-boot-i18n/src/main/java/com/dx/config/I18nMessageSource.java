@@ -1,6 +1,6 @@
 package com.dx.config;
 
-import com.dx.service.MyTest;
+import com.dx.server.service.MyTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.stereotype.Service;

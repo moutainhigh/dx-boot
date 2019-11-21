@@ -1,6 +1,11 @@
+server:
+  port: 8086
+
 spring:
-  profiles:
-    active: http
+  application: simple
+
+
+
 
 
 
@@ -8,6 +13,5 @@ spring:
 #logging:
 #  level:
 #    root: info
-
 
 

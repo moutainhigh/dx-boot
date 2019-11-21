@@ -1,4 +1,4 @@
-package com.dx.service;
+package com.dx.server.service;
 
 import com.dx.bean.User;
 import com.dx.mapper.UserMapper;

@@ -3,8 +3,8 @@ package com.dx.controller;
 import com.dx.annotation.PassToken;
 import com.dx.annotation.UserLoginToken;
 import com.dx.bean.User;
-import com.dx.service.TokenService;
-import com.dx.service.UserService;
+import com.dx.server.service.TokenService;
+import com.dx.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

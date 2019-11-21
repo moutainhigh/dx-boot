@@ -21,10 +21,10 @@
 <!--        <module>dx-boot-rest</module>-->
 <!--        <module>dx-boot-docker</module>-->
 <!--        <module>dx-boot-reptile</module>-->
-<!--        <module>dx-boot-netty</module>-->
+        <module>dx-boot-netty</module>
 <!--		<module>dx-boot-deeplearning</module>-->
 <!--        <module>dx-boot-ocr</module>-->
-        <module>dx-boot-mvc</module>
+<!--        <module>dx-boot-mvc</module>-->
 <!--        <module>dx-boot-shiro</module>-->
 <!--        <module>dx-boot-wx</module>-->
 <!--        <module>dx-boot-wxjava</module>-->

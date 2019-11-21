@@ -1,4 +1,4 @@
-package com.dx.service;
+package com.dx.server.service;
 
 /**
  * Description: com.dx.service
