@@ -42,7 +42,10 @@
 <!--        <module>dx-boot-file</module>-->
 <!--        <module>dx-boot-i18n</module>-->
 <!--        <module>dx-boot-ueditor</module>-->
-        <module>dx-boot-thymeleaf</module>
+<!--        <module>dx-boot-mvc</module>-->
+<!--        <module>dx-boot-thymeleaf</module>-->
+            <module>dx-boot-qq</module>
+            <module>dx-boot-myqq</module>
     </modules>
 
 
