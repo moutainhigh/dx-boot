@@ -51,7 +51,13 @@
             <artifactId>luaj-jse</artifactId>
             <version>3.0.1</version>
         </dependency>
-
+        <!-- 文件操作-->
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+        </dependency>
 
 
     </dependencies>

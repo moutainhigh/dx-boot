@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    </style>
+</head>
+<body>
+
+
+<canvas id="canvas" width="200" height="200">
+
+</canvas>
+
+<script>
+
+
+    var c = document.getElementById("canvas");
+    var ctx = c.getContext("2d");
+    // 重新映射画布上的 (0,0) 位置
+    ctx.translate(100, 100);
+    var r = 100 -10;
+
+
+    /**
+     * 画圆
+     */
+    function drawCrl() {
+        // 起始一条路径，或重置当前路径
+        ctx.beginPath();
+        ctx.arc(0, 0, r, 0, 2 * Math.PI);
+        // 绘制已定义的路径
+        ctx.stroke();
+    }
+
+
+    /**
+     * 画数字
+     */
+    function drawNum() {
+        var num = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2];
+        num.forEach(function (value, index) {
+            var xText = Math.cos(((2 * Math.PI) / 12) * index) * r;
+            var yText = Math.sin(((2 * Math.PI) / 12) * index) * r;
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText(value, xText, yText);
+        })
+    }
+
+    // 把要画下的东西在画布上面画出来
+    drawCrl();
+    drawNum();
+
+
+</script>
+
+</body>
+</html>
+
