@@ -1,4 +1,4 @@
-package com.dx.security.bean;
+package com.dx.bean;
 
 import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
@@ -34,8 +34,6 @@ public class Student extends Model<Student> {
      */
     @TableLogic
     private String isDel;
-
-
 
     @Override
     protected Serializable pkVal() {

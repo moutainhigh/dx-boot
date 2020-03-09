@@ -1,7 +1,7 @@
 package com.dx.repository;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.dx.security.bean.Student;
+import com.dx.bean.Student;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

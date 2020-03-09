@@ -1,4 +1,4 @@
-package com.dx.security.config;
+package com.dx.config;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.springframework.context.annotation.Bean;
@@ -18,5 +18,10 @@ public class MybatisPlusConfig {
     @Bean
     public PaginationInterceptor paginationInterceptor(){
         return new PaginationInterceptor();
+    }
+
+    @Bean
+    public ISqlInjector sqlInjector() {
+        return new LogicSqlInjector();
     }
 }

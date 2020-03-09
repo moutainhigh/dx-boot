@@ -1,4 +1,4 @@
-package com.dx.security.bean;
+package com.dx.bean;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
